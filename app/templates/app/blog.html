@@ -1,0 +1,137 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block link %}
+  <link rel="stylesheet" href="{% static 'app/css/styles.css' %}">
+{% endblock link %}
+{% block main-container %}
+    <section class="block block-padding-up">
+      <img class="flower-bg-up blog-page" src=" {% static 'app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png' %} "></img>
+        <h1 class="greet">Blogs</h1>
+        
+        <div class="ar_bg"></div>
+      <!-- <div class="grid grid--1x2"> -->
+        <div class="top-block">
+        <div class="img">
+          <img class="feature__image" src="{% static 'app/images/bg/Group 34.png' %}" alt="" />
+        </div>
+        <div class="text read-more">
+          <h1 class="read-more-heading">The Bracelet Collections</h1>
+          <p class="greeting-text-blog" style="overflow: hidden;">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur dolore cumque sunt est! Laboriosam animi natus fuga perferendis, quae autem quisquam, harum in recusandae nemo voluptatibus libero voluptate ratione. Ducimus voluptatem officiis totam necessitatibus nam vitae maiores enim deserunt optio provident. Doloribus qui maxime laboriosam est illo. Ut consequatur facere voluptatem fugit eaque, praesentium error asperiores quos dolores minus natus totam unde ex a iusto temporibus suscipit aliquid nam sequi at sint quod cumque! Similique, iure facilis! Molestiae aspernatur quasi, rem nesciunt distinctio dicta sequi temporibus commodi eveniet provident fugit expedita, nulla dolorem accusamus in? Maxime iusto ad iste rerum!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic aperiam ab sint numquam et molestiae saepe eum, voluptas officia provident vitae tempora, sequi totam, optio iure a? Doloremque, repudiandae est. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius velit maxime facilis modi optio. Dolores obcaecati asperiores rerum expedita voluptate eum delectus nemo officia at? Deserunt in perspiciatis amet ab?Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi commodi possimus laboriosam exercitationem non mollitia optio ipsam, fugit reiciendis voluptatibus nesciunt saepe eum corrupti perferendis obcaecati quae. Asperiores, eaque ipsum.
+          </p>
+          <div>
+            <a class="read-more-btn art" href="#">Read More</a>
+          </div>
+        </div>
+      </div>
+      <!-- <img class="flower-bg-down" src="./images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png"></img> -->
+    </section>
+    <section>
+      <div class="container-fluid my-5">
+        <div class="row">
+            <div class="col-12 m-auto">
+                <div class="owl-carousel owl-theme">
+                    <div class="item mb-4">
+                        <div class="card border-0 shadow">
+                            <img class="img-carausel square" src="{% static 'app/images/jwellery.jpeg' %}" alt="" class="card-img-top">
+                            <div class="card-body">
+                              <div class="card-title text-center">
+                                <a class="carousel-link" href="#">Read More</a>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card border-0 shadow">
+                            <img class="img-carausel" src="{% static 'app/images/bg/Rectangle 5.png' %}" alt="" class="card-img-top">
+                            <div class="card-body">
+                              <div class="card-title text-center">
+                                <a class="carousel-link" href="#">Read More</a>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card border-0 shadow">
+                            <img class="img-carausel" src="{% static 'app/images/bg/Rectangle 5.png' %}" alt="" class="card-img-top">
+                            <div class="card-body">
+                              <div class="card-title text-center">
+                                <a class="carousel-link" href="#">Read More</a>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card border-0 shadow">
+                            <img class="img-carausel" src="{% static 'app/images/bg/Rectangle 5.png' %}" alt="" class="card-img-top">
+                            <div class="card-body">
+                              <div class="card-title text-center">
+                                <a class="carousel-link" href="#">Read More</a>
+                              </div>
+                          </div>
+      
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card border-0 shadow">
+                            <img class="img-carausel" src="{% static 'app/images/bg/Rectangle 5.png' %}
+                          " alt="" class="card-img-top">
+                            <div class="card-body">
+                              <div class="card-title text-center">
+                                <a class="carousel-link" href="#">Read More</a>
+                              </div>
+                          </div>
+      
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card border-0 shadow">
+                            <img class="img-carausel" src="{% static 'app/images/bg/Rectangle 5.png' %}" alt="" class="card-img-top">
+                            <div class="card-body">
+                              <div class="card-title text-center">
+                                <a class="carousel-link" href="#">Read More</a>
+                              </div>
+                          </div>
+      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"></script>
+    <script>
+      $('.owl-carousel').owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: false,
+          responsive: {
+              0: {
+                  items: 1
+              },
+              600: {
+                  items: 2
+              },
+              1000: {
+                  items: 3
+              }
+          }
+      })
+    </script>
+    <div class="bg-container">
+    <img class="sp-flower-bg" src="{% static 'app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png' %} "></img>
+    </div>
+
+{% endblock main-container %}
+
+

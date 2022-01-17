@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav collapsible">
+        <h1 style="color: #fff8f8">LOGO</h1>
+        <svg class="icon icon--white nav__toggler">
+          <use href="./images/menu.svg"></use>
+        </svg>
+        <ul class="list nav__list collapsible__content">
+          <li>
+            <input class="navbar-search" type="text" placeholder="Search" />
+          </li>
+          <li class="nav__item"><a href="#">login</a></li>
+          <li class="nav__item"><a href="#">My Wishlist</a></li>
+          <li class="nav__item"><a href="#">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="account-header">
+      <h1 class="greet">My Account</h1>
+      <div class="ar_bg"></div>
+    </div>
+    <div class="profile-container">
+    <div class="profile">
+      <div class="card">
+        <div><img src="./images/index.jpeg" alt="profile picture" /></div>
+        <div class="hello-txt">
+          <span>Hello, </span> <span class="account-name">Lexi Ferns</span>
+        </div>
+      </div>
+      <hr />
+      <div class="toggler" id="toggler">
+        <i class="fas fa-bars"></i>
+            <hr
+          /></div>
+      <div class="links ">
+        <div>
+          <span class="link">
+          <span class="ul-toggle"><span class="icon"><i class="far fa-user"></i></span><span>ACCOUNT SETTING</span></span>
+            <ul class="ul opened">
+              <li class="active-link">Profile Information</li>
+              <li>Manage Address</li>
+            </ul>
+            <hr
+          /></span>
+          <span class="link"
+            ><span
+              ><span class="icon"><i class="fas fa-archive"></i></i></span><span>MY ORDER</span>
+              <hr /></span
+          ></span>
+          <span class="link"
+            ><span
+              ><span class="icon"><i class="fas fa-map-pin"></i></span><span>ADDRESSES</span>
+              <hr /></span
+          ></span>
+          <span class="link"
+            ><span
+              ><span class="icon"><i class="fas fa-sign-out-alt"></i></span><span>LOGOUT</span>
+              <hr /></span
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="my-details">
+      <div class="head">
+        <h2>My Details</h2>
+        <h3>Personal Information</h3>
+        <!-- <hr /> -->
+      </div>
+
+      <div class="body">
+        <form>
+          <span class="name">
+            <span>
+              <label>First name:</label>
+              <br />
+              <br />
+              <input type="text" placeholder="Lexi" />
+            </span>
+            <span>
+              <label>Last name:</label>
+              <br />
+              <br />
+              <input type="text" placeholder="Ferms" />
+            </span>
+          </span>
+          <div class="gender">
+            <label class="gender-lbl">Gender</label>
+            <br /><br />
+            <input name="gender" type="radio" id="male" />
+            <label for="html">Male</label>
+            <input name="gender" type="radio" id="female" />
+            <label for="css">Female</label><br />
+          </div>
+          <div class="email">
+            <label class="email-lbl">Email</label> <a href="#">Edit</a
+            ><a href="#">change Password</a> <br /><br />
+            <input
+              name="email"
+              type="email"
+              placeholder="Lexiferns1@gmai.com"
+            />
+          </div>
+          <div class="email">
+            <label class="email-lbl">Mobile Number</label> <a href="#">Edit</a>
+            <br /><br />
+            <input name="number" type="number" placeholder="+919087654321" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="block block--dark footer">
+    <div class="grid footer__sections">
+      <section class="collapsible collapsible--expanded footer__section">
+        <header class="collapsible__header footer__heading">
+          <h2 class="collapsible__heading">Information</h2>
+        </header>
+        <div class="collapsible__content">
+          <ul class="list">
+            <li><a href="#">About samaya Diamont</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="collapsible footer__section">
+        <header class="collapsible__header footer__heading">
+          <h2 class="collapsible__heading">Customer Service</h2>
+        </header>
+        <div class="collapsible__content">
+          <ul class="list">
+            <li><a href="#">Return</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Term and Condition</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="collapsible footer__section">
+        <header class="collapsible__header footer__heading">
+          <h2 class="collapsible__heading">My Account</h2>
+        </header>
+        <div class="collapsible__content">
+          <ul class="list">
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Knowledge Base</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="footer__brand">
+        <img src="images/logo.svg" alt="" />
+        <p class="footer__copyright">
+          Scelerisque sit et bibendum molestie duis in velit dis. Ac viverra
+          nunc nulla sed dui. Et faucibus lobortis ultrices fermentum luctus
+          feugiat semper.
+        </p>
+      </section>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  </body>
+  <script>
+    const toggler = document.querySelector("#toggler");
+    const links = document.querySelector(".links");
+
+    toggler.addEventListener("click", function(){
+      links.classList.toggle("toggle-height");
+    })
+    // links->links
+    const ulToggle = document.querySelectorAll(".ul-toggle");
+    ulToggle.forEach((item)=>{
+      const itemChild = item.parentElement.children[1];
+      item.addEventListener("click", function(){
+        itemChild.classList.toggle("opened")
+      })
+      console.log(item.parentElement.children[1]);
+    })
+
+  </script>
+  <script
+    src="https://kit.fontawesome.com/9dddb02c5f.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

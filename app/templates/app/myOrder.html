@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>My Order</title>
+  </head>
+  <body>
+    <header>
+      <nav class="nav collapsible">
+        <h1 style="color: #fff8f8">LOGO</h1>
+        <svg class="icon icon--white nav__toggler">
+          <use href="./images/menu.svg"></use>
+        </svg>
+        <ul class="list nav__list collapsible__content">
+          <li>
+            <input class="navbar-search" type="text" placeholder="Search" />
+          </li>
+          <li class="nav__item"><a href="#">login</a></li>
+          <li class="nav__item"><a href="#">My Wishlist</a></li>
+          <li class="nav__item"><a href="#">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="my-order-container">
+      <div class="account-header">
+        <h4 class="navigator"><a href="#">home</a> ><a href="#">My Account</a> > <a href="#">My Orders</a></h4>
+        <h1 class="greet">My Order</h1>
+        <div class="ar_bg"></div>
+      </div>
+      <div class="my-order">
+        <div class="filter">
+          <div class="filter-heading"><span>Filters </span>  <i class="fas fa-bars"></i></div>
+          <div class="filter-cover show">
+            <div class="order-status">
+              <h3>ORDER STATUS</h3>
+              <form action="/action_page.php">
+                <input type="checkbox" id="on-the-way" />
+                <label for="on-the-way"> On the way</label><br />
+                <input type="checkbox" id="delivered" />
+                <label for="delivered"> Delivered</label><br />
+                <input type="checkbox" id="cancelled" />
+                <label for="cancelled"> Cancelld</label><br />
+                <input type="checkbox" id="returned" />
+                <label for="returned"> Returned</label>
+              </form>
+            </div>
+            <div class="order-time">
+              <h3>ORDER TIME</h3>
+              <form action="/action_page.php">
+                <input type="checkbox" id="last-30" />
+                <label for="last-30"> Last 30 days</label><br />
+                <input type="checkbox" id="2020" />
+                <label for="2020"> 2020</label><br />
+                <input type="checkbox" id="2019" />
+                <label for="2019"> 2019</label><br />
+                <input type="checkbox" id="older" />
+                <label for="older"> Older</label>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="cart">
+          <div class="search-bar">
+            <input class="search-field" type="text" placeholder="Search your orders here"><button class="search-btn">Search</button>
+          </div>
+          <div class="see-more"><span></span><a href="#"> See More  ></a></div>
+          <div class="items">
+            <div class="jwelery-item">
+              <div class="img-and-name">
+              <img src="./images/bg/Rectangle 48.png" alt="" />
+              <div class="name-price">
+                <h3 class="name">Diamond Ring</h3>
+                <span class="price">Price - ₹56,000</span>
+              </div>
+              </div>
+              <div class="delivery-rating">
+                <h3 class="date">
+                  <div class="dot"></div>Delivered on 12 July 21
+                </h3>
+                <p class="status">Your item has been delivered</p>
+                <p class="rating">Rate & Review Product</p>
+              </div>
+            </div>
+            <div class="jwelery-item">
+            <div class="img-and-name">
+              <img src="./images/bg/Rectangle 48.png" alt="" />
+              <div class="name-price">
+                <h3 class="name">Diamond Ring</h3>
+                <span class="price">Price - ₹56,000</span>
+              </div>
+            </div>
+              <div class="delivery-rating">
+                <h3 class="date">
+                  <div class="dot"></div>Delivered on 12 July 21
+                </h3>
+                <p class="status">Your item has been delivered</p>
+                <p class="rating">Rate & Review Product</p>
+              </div>
+            </div>
+            <div class="jwelery-item">
+              <div class="img-and-name">
+                <img src="./images/bg/Rectangle 48.png" alt="" />
+                <div class="name-price">
+                  <h3 class="name">Diamond Ring</h3>
+                  <span class="price">Price - ₹56,000</span>
+                </div>
+                </div>
+              <div class="delivery-rating">
+                <h3 class="date">
+                  <div class="dot"></div>Delivered on 12 July 21
+                </h3>
+                <p class="status">Your item has been delivered</p>
+                <p class="rating">Rate & Review Product</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const filter = document.querySelector(".filter-heading");
+      filter.addEventListener("click",()=>{
+        filter.parentElement.children[1].classList.toggle("show");
+      })
+    </script>
+    <script
+    src="https://kit.fontawesome.com/9dddb02c5f.js"
+    crossorigin="anonymous"
+  ></script>
+  </body>
+</html>

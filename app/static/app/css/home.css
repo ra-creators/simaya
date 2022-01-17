@@ -1,0 +1,294 @@
+.row{
+    width: 100%;
+}
+.bg{
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.ring_img{
+    width: -webkit-fill-available;
+}
+.ring_op{
+    position: absolute;
+    width: 430px;
+    opacity: 0.3;
+}
+.new{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.03em;
+    color: #F78383;
+}
+.br{
+    font-family: Analogue;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 73px;
+    letter-spacing: 0.03em;
+    color: #F78383;
+}
+.sn{
+    background: #F78383;
+    border-radius: 1.51174px;
+    color: #FFFFFF;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    cursor: pointer;
+}
+.arrival{
+    font-family: Playfair Display SC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.ar_bg{
+    background-image: url("../Radhya/d1.svg");
+    height: 100px;
+    background-position: center;
+    display: flex;
+    margin: auto;
+    background-repeat: no-repeat;
+}
+#tabs3 , #tabs31{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: auto;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 42px;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+#tabs3 .active{
+    color: #D23636;
+    text-decoration: underline;
+}
+#tabs31 .active{
+    color: #D23636;
+    text-decoration: underline;
+}
+.cr_content{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.hover_part1 , .hover_part2 , .hover_part3 ,.hover_part11  , .hover_part12 , .hover_part13 , .hover_part14{
+    display: none;
+}
+.hov1:hover + .hover_part1 , .hov2:hover + .hover_part2 , .hov3:hover + .hover_part3 , .hov11:hover + .hover_part11 , .hov12:hover + .hover_part12 ,.hov13:hover + .hover_part13 , .hov14:hover + .hover_part14{
+    display: block;
+    position: absolute;
+    background: linear-gradient(357.8deg, rgba(255, 184, 191, 0.9) 1.85%, rgba(255, 255, 255, 0) 98.31%), url(JE04303-YGP900_1_lar.jpg);
+    width: 90%;
+    bottom: 0;
+    height: 50%;
+}
+.hov_title{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.cr_t{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28.1076px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.67);
+}
+.sh_n{
+    background: #FFFFFF;
+    border-radius: 1.41638px;
+    border: none;
+    color: black;
+    cursor : pointer;
+}
+.neck{
+    width: 400px;
+}
+.spec{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #D23636;
+}
+.spec_h{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+
+.spec_d{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.engg{
+    background-color: #FFFFFF;
+    border: 8.08716px solid rgba(0, 0, 0, 0.08);
+}
+.engg_t{
+    font-family: Analogue;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64.6973px;
+    line-height: 56px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.engg_d{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16.1743px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.sn1{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26.9572px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.35);
+}
+.p_s{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24.0782px;
+    line-height: 36px;
+    /* identical to box height */
+    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.39);
+}
+.p_name{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24.0782px;
+    line-height: 36px;
+    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.75);
+}
+.p_before{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20.6385px;
+    line-height: 31px;
+    /* identical to box height */
+    letter-spacing: 0.03em;
+    text-decoration-line: line-through;
+    color: rgba(0, 0, 0, 0.48);
+}
+.p_after{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24.0782px;
+    line-height: 36px;
+    /* identical to box height */
+    letter-spacing: 0.03em;
+    color: #000000;
+}
+.jwel{
+    width: -webkit-fill-available;
+}
+
+@media screen and (max-width : 576px){
+    #tabs3 , #tabs31{
+        font-size: 15px;
+        width: 90%;
+    }
+    .engg_t{
+        font-size: 30px;
+    }
+    .neck{
+        width: -webkit-fill-available;
+    }
+    .ring_op{
+        width: 150px;
+    }
+    .new{
+        font-size: 15px;
+    }
+    .br{
+        font-size: 25px;
+        line-height: normal;
+    }
+    .sn{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width : 767px)and (min-width:576px){
+    .ring_op{
+        width: 200px;
+    }
+    #tabs3 , #tabs31{
+        width: 100%;
+    }
+    .neck{
+        width: -webkit-fill-available;
+    }
+    .p_prices{
+        display: grid;
+    }
+}
+@media screen  and (max-width:992px) and (min-width: 767px){
+    .ring_op{
+        width: 320px;
+    }
+    .p_prices{
+        display: grid;
+    }
+}

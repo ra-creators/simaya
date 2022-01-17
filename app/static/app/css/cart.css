@@ -1,0 +1,195 @@
+.row{
+    width: 100%;
+}
+.arrival{
+    font-family: Playfair Display SC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 48px;
+    color: #D23636;
+}
+.ar_bg{
+    background-image: url(/Radhya/d1.svg);
+    height: 100px;
+    background-position: center;
+    display: flex;
+    margin: auto;
+    background-repeat: no-repeat;
+}
+.page{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 72px;
+    letter-spacing: 0.03em;
+    color: #D23636
+}
+.item_add{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    /* or 131% */
+    letter-spacing: -0.346977px;
+    color: #8D0020;
+}
+.total{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 40px;
+    /* or 157% */
+    float: right;
+    color: #000000;
+}
+.c_name{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    /* or 167% */
+    text-align: center;
+    letter-spacing: -0.346977px;
+    color: #8D0020;
+}
+.c_other{
+    color: #828282 !important;
+}
+.s_container{
+    padding-left: 5%;
+    border-left: 1px solid black;
+    margin-left: 5%;
+}
+.p_det{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    /* or 133% */
+    color: #000000;
+}
+.details{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    /* Gray 3 */
+    color: #828282;
+    margin-top: 5%;
+}
+.det_desc{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    color: #333333;
+    margin-top: 5%;
+}
+.p_order{
+    background: #F78383;
+    border: none;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 31px;
+    /* identical to box height, or 122% */
+    letter-spacing: -0.572228px;
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.s_d{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16.8302px;
+    line-height: 31px;
+    /* or 183% */
+    letter-spacing: -0.572228px;
+    color: rgba(130, 130, 130, 0.98);
+}
+.item_row{
+    background-color: #FFFFFF;
+}
+.t2{
+    font-size: 20px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px;
+    color: #000000;
+}
+.i_img{
+    width: -webkit-fill-available;
+}
+.for{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.05em;
+    color: #828282;
+}
+.o_inc{
+    display: flex;
+}
+.minus{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    background: #BDBDBD;
+    border-radius: 9.96429px 0px 0px 9.96429px;
+    font-weight: bold;
+    margin-left: 15%;
+    border: none;
+}
+.num{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    background: #FFD2D2;
+    font-weight: bold;
+}
+.plus{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    background: #BDBDBD;
+    border-radius: 0px 9.96429px 9.96429px 0px;
+    font-weight: bold;
+    border: none;
+}
+
+/* Responsive */
+@media screen and (max-width : 900px){
+    .page{
+        font-size: 30px;
+    }
+    .item_add , .total , .t2 , .c_name, .det_desc , .details {
+        font-size: 15px;
+    }
+    .p_det{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width : 576px){
+    .s_container{
+        border-left: none !important;
+        border-top: 1px solid black;
+        margin-left: 0%;
+    }
+    .items_container{
+        margin-left: 5%;
+    }
+}

@@ -1,0 +1,198 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-color: #FFF8F8;
+}
+.header{
+    height:15vh;
+    background-color: #ffffff;
+}
+.footer{
+    position: relative;
+    bottom: -60vh;
+    height:15vh;
+    background-color: #ffffff;
+}
+h3,h4 {
+    color: #D23636;
+}
+
+h1{
+    position: relative;
+    top:-25vh;
+    left:40vw;
+    color: #ffffff;
+    font-style: normal;
+    width: fit-content;
+    font-weight: 100%;
+}
+.Contact img{
+    height:40vh;
+    width: 100%;
+    padding: 0 ;
+}
+.topper{
+    position: relative;
+    top: -6vh;
+    right: -37vw;
+    width: 10vw;
+    height: 20vh;
+}
+.bottom{
+    position: relative;
+    transform: rotate(170deg);
+    width: 10vw;
+    height: 20vh;
+    bottom:-60vh;
+    left:-55vw;
+}
+.label{
+    width: 10vw;
+    position: relative;
+    right: -1vw;
+    top:-3vh;
+}
+label{
+    color: rgba(0, 0, 0, 0.46);
+}
+h3{
+    font-size: 200%;
+    width: 100%;
+}
+h4{
+    padding-top: 5%;
+    
+    text-align: left;
+    font-size: 140%;
+}
+.left{
+    float: left;
+    padding: 0 4vw 4vw 2vw;
+    width: 45%;
+}
+.left img{
+    width: 40vw;
+}
+.text{
+    background-color: #FFEDED;
+    padding: 5px;
+    margin: 10px 10px 0 0;
+    width: 80%;
+    border:  #bdbdbd;
+    margin-top: 3%;
+    border-bottom:  1px solid #bdbdbd;
+    outline: none;
+    margin-bottom: 20px;
+}
+.button{
+    background-color: #F78383;
+    color: #ffffff;
+    padding: 2%;
+    border-color: #F78383;
+    width: 9vw;
+    border-radius: 7px;
+    margin-bottom: 10%;
+    margin-top: 3%;
+}
+.contactUsForm{
+    width: 95%;
+   padding-left: 5%;
+    background-color: #FFEDED;
+    margin-top: 8%;
+}
+.right{
+    float: right;
+    width: 50vw;
+    text-align: justify;
+    padding-right: 5%;
+    position: relative;
+    top: -19vh;
+}
+.right p{
+    margin-bottom: 5%;
+    width: 70%;
+}
+.location{
+    position: relative;
+    top: 23vh;
+}
+@media all and (max-width:720px)
+{
+    .header{
+        height: 10vh;
+    }
+    .footer{
+        height: 10vh;
+        bottom: -50vh;
+    }
+    .Contact img{
+        height: 15vh;
+    }
+    h1{
+        top: -9vh;
+        left: 25vw;
+    }
+}
+
+@media all and (max-width:350px){
+    .footer{
+        height: 10vh;
+        bottom: 0vh;
+    }
+    .left{
+        float: none;
+        padding: 0 0 0 2vw;
+        position: relative;
+        top: -12vh;
+    }
+    .right{
+        float: none;
+        width: 100%;
+        top: -20vh;
+    }
+    h3{
+        width: 200%;
+    }
+    .location{
+        position: static;
+    }
+    .left img{
+        width: 200%;
+    }
+    .right p{
+        width: 90%;
+        padding-left: 4vw;
+    }
+    .topper{
+        top: -3vh;
+        right: -80vw;
+        height: 10vh;
+    }
+    .bottom{
+        bottom: -40vh;
+        height: 10vh;
+        left: 0;
+    }
+    .label{
+        width: 30vw;
+        top: -3vh;
+    }
+    .text{
+        position: relative;
+        top: -6vh;
+    }
+    .button{
+        width: 19vw;
+        position: relative;
+        top: -5vh;
+    }
+    .contactUsForm{
+        padding-left: 10%;
+        padding-right: 5%;
+        margin-left: 5%;
+    }
+}

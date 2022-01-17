@@ -1,0 +1,130 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'app/css/ring.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'app/css/home.css'%}">
+    <link rel="stylesheet" href="{% static 'app/css/head_foot.css'%}">
+{% endblock link %}
+
+{% block main-container %}
+    <!-- heading -->
+    <div class="ring">
+        <div class="ring-heading">
+            <img src="{% static 'app/images/img/rose.png' %} " alt="" srcset="" class="rose-top">
+                <h1 class="text-red">RINGS</h1>
+                <img src="{% static 'app/images/img/linha.png' %} " alt="" width="30%">
+            <img src="{% static 'app/images/img/rose.png' %} " alt="" srcset="" class="rose-bottom">
+        </div>
+    <!-- heading -->
+    <!-- collection -->
+    <div class="container">
+        <div class="collection">
+            <div class='card'>
+                <div class="card-img col-card">
+                    <img src="{% static 'app/images/img/man-ring.png' %} " alt="" >
+                    <div class="cardbg">
+                        <h1 class="text-fent">Man Ring Collection</h1><br>
+                        <a href="" class="more">Shop Now</a>
+                    </div>
+                </div>
+                <div class="ring-price">
+                    <h2 class="text-center text-fent">Man Ring Collection</h2>
+                  
+                </div>  
+            </div>
+            <div class='card'>
+                <div class="card-img col-card">
+                    <img src="{% static 'app/images/img/woman-ring.png' %} " alt="" w>
+                    <div class="cardbg">
+                        <h1 class="text-fent">Woman Ring Collection</h1><br>
+                        <a href="#" class="more">Shop Now</a>
+                    </div>
+                </div>
+                <div class="ring-price">
+                    <h2 class="text-center text-fent">Woman Ring Collection</h2>   
+                </div>  
+            </div>   
+        </div>
+    </div>
+        
+    <!-- collection -->  
+
+          
+        <div class="container">
+            <h1 class="all">All</h1>
+            <div class="ring-grid">
+                {% for ring in rings %}
+                    <div class='card'>
+                        <div class="card-img">
+                            <img src="{{ring.product_image.url}} " alt="" width="100%">
+                            <div class="cardbg">
+                                <span><a href="#">View Product</a></span>
+                            </div>
+                        </div>
+                        <div class="ring-price">
+                            <h4>{{ring.category}}</h4>
+                            <h3>{{ring.titel}}</h3>
+                            <span class="line">Rs.{{ring.selling_price}}</span><span><b>Rs.{{ring.discounted_price}}</b></span>
+                            <a href="{% url 'product-detail' ring.id %}" class="btn">Shop Now</a>
+                        </div>  
+                    </div>
+                {% endfor %}
+                {% for ear in ears %}
+                    <div class='card'>
+                        <div class="card-img">
+                            <img src="{{ear.product_image.url}} " alt="" width="100%">
+                            <div class="cardbg">
+                                <span><a href="#">View Product</a></span>
+                            </div>
+                        </div>
+                        <div class="ring-price">
+                            <h4>{{ear.category}}</h4>
+                            <h3>{{ear.titel}}</h3>
+                            <span class="line">Rs.{{ear.selling_price}}</span><span><b>Rs.{{ear.discounted_price}}</b></span>
+                            <a href="{% url 'product-detail' ear.id %}" class="btn">Shop Now</a>
+                        </div>  
+                    </div>
+                {% endfor %}
+
+                {% for brac in bracs %}
+                    <div class='card'>
+                        <div class="card-img">
+                            <img src="{{brac.product_image.url}} " alt="" width="100%">
+                            <div class="cardbg">
+                                <span><a href="#">View Product</a></span>
+                            </div>
+                        </div>
+                        <div class="ring-price">
+                            <h4>{{brac.category}}</h4>
+                            <h3>{{brac.titel}}</h3>
+                            <span class="line">Rs.{{brac.selling_price}}</span><span><b>Rs.{{brac.discounted_price}}</b></span>
+                            <a href="{% url 'product-detail' brac.id %}" class="btn">Shop Now</a>
+                        </div>  
+                    </div>
+                {% endfor %}
+
+                {% for neck in necks %}
+                    <div class='card'>
+                        <div class="card-img">
+                            <img src="{{neck.product_image.url}} " alt="" width="100%">
+                            <div class="cardbg">
+                                <span><a href="#">View Product</a></span>
+                            </div>
+                        </div>
+                        <div class="ring-price">
+                            <h4>{{neck.category}}</h4>
+                            <h3>{{neck.titel}}</h3>
+                            <span class="line">Rs.{{neck.selling_price}}</span><span><b>Rs.{{neck.discounted_price}}</b></span>
+                            <a href="{% url 'product-detail' neck.id %}" class="btn">Shop Now</a>
+                        </div>  
+                    </div>
+                {% endfor %}
+                </div>  
+            </div>
+        </div>
+    </div>
+
+{% endblock main-container %}

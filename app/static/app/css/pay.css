@@ -1,0 +1,183 @@
+row{
+    width: 100%;
+}
+.arrival{
+    font-family: Playfair Display SC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 48px;
+    color: #D23636;
+}
+.ar_bg{
+    background-image: url(/Radhya/d1.svg);
+    height: 100px;
+    background-position: center;
+    display: flex;
+    margin: auto;
+    background-repeat: no-repeat;
+}
+.path{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.9);
+}
+.login{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    color: #D23636;
+}
+.lo_details{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.5);
+}
+.imp{
+    color: red;
+}
+.add_form label{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: justify;
+    color: #000000;
+}
+.add_form input{
+    margin-top: 10px;
+    width: -webkit-fill-available;
+    background: #FFFFFF;
+    border: 1px solid #FF8585;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.form-check-label{
+    font-size: 10px !important;
+    width: max-content;
+}
+.why{
+    background: rgba(247, 131, 131, 0.6);
+    border: 2px solid #F78383;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.deliver{
+    background: #F78383;    
+    border-radius: 10px;
+    border: none;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.o_img{
+    width: -webkit-fill-available;
+    padding: 5%;
+}
+.o_cont{
+    background: #FFF8F8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 5%;
+}
+.o_cont:last-child{
+    margin-bottom: 5%;
+}
+.o_name{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+}
+.o_price{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 45px;
+    color: #000000;
+}
+.o_btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+.btns{
+    background: linear-gradient( 
+0deg, rgba(255, 184, 191, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.50));
+    border-radius: 10px;
+    border: none;
+    font-size: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.o_inc{
+    display: flex;
+}
+.trash_img{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}
+.trash{
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    background: rgba(255, 184, 191, 0.4);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.num{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    background: rgba(216, 147, 154, 0.4);
+}
+.plus{
+    color: red;
+    width: 30px;
+    background: rgba(255, 184, 191, 0.4);
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+}
+.cost{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+}
+.discount{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+}

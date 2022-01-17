@@ -1,0 +1,221 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}<title>Home|page</title>{% endblock title %}
+{% block main-container %}
+<body style="background-color: #FFF8F8;">
+    <div class="container">
+        {% for ring in rings %}
+            <div class="row bg-white">
+                <div class="col-6 ">
+                    <img class="ring_img" src=" {{ring.product_image.url}}" alt="image not found">
+                </div>
+                <div class="col-6 bg">
+                    <img class="ring_img ring_op" src="{{ring.product_image.url}}"alt="image not found">
+                    <div class="text-center">
+                        <div class="new">New Collection</div>
+                        <div class="br">Beautiful Rigns</div>
+                        <a href="{% url 'product_name' ring.id %}">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container" style="background-color: #FFF8F8;">
+        <div class="text-center mt-5">
+            <div class="arrival">New Arrival</div>
+            <div class="ar_bg"></div>
+        </div>
+        <div id="tabs3">
+            <li class="t3_item">All</li>
+            <li class="t3_item">Ring</li>
+            <li class="t3_item">Earrings</li>
+            <li class="t3_item">Bracelets</li>
+            <li class="t3_item">Necklace</li>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 cr_content">
+                <img class="cr_img hov1" src=" {% static 'app/images/Radhya/diamond_ring.svg' %}"  alt="">
+                <div class="hover_part1 text-center">
+                    <div class="cr_t">Samaya Diamond and Gold Earring</div>
+                    <button class="sh_n mt-5 mb-5">Shop Now</button>
+                </div>
+            </div>
+            <div class="col-sm-4 cr_content">
+                <img class="cr_img hov2" src=" {% static 'app/images/Radhya/earring1.svg' %}" alt="">
+                <div class="hover_part2 text-center">
+                    <div class="cr_t">Samaya Diamond and Gold Earring</div>
+                    <button class="sh_n mt-5 mb-5">Shop Now</button>
+                </div>
+            </div>
+            <div class="col-sm-4 cr_content">
+                <img class="cr_img hov3" src=" {% static 'app/images/Radhya/diamond_braclet.svg'%}"  alt=""> 
+                <div class="hover_part3 text-center">
+                    <div class="cr_t">Samaya Diamond and Gold Earring</div>
+                    <button class="sh_n mt-5 mb-5">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-6 text-center">
+                <div class="spec">Special</div>
+                <div class="spec_h mt-3">Jewelry made from our hearts to your soul</div>
+                <div class="spec_d mt-3">Bibendum cras velit ut vel. Etiam a et risus duis vivamus donec faucibus. Nisl
+                    eget et in velit diam non.</div>
+            </div>
+            <div class="col-sm-6">
+                <img class="neck" src="{% static 'app/images/Radhya/necklace.svg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container engg mt-5">
+                <div class="engg_t mt-2">Enggagement</div>
+                <div class="engg_t mt-2">Ring</div>
+                <div class="engg_d mt-3">Pellentesque cras nunc ipsum hendrerit varius. Ullamcorper sed enim enim interdum
+                    pulvinar magna. Orci feugiat tellus eleifend enim magna morbi tincidunt etiam turpis..</div>
+                <div class="sn1 mt-3">Shop Now <i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+    </div>
+    <div class=" bg-white">
+        <div class="text-center mt-3">
+            <div class="arrival">Categories</div>
+            <div class="ar_bg"></div>
+            <div class="row">
+                <div class="col-sm-3" style="position: relative;">
+                    <img class="hov11" style="width: -webkit-fill-available;;" src= "{% static 'app/images/Radhya/ring1.svg' %}" alt="">
+                    <div class="text-center hover_part11">
+                        <div class="hov_title">Samaya Diamond and Gold Earring</div>
+                    </div>
+                </div>
+                <div class="col-sm-3" style="position: relative;">
+                    <img class="hov12" style="width: -webkit-fill-available;;" src="{% static 'app/images/Radhya/earring1.svg'%}" alt="">
+                    <div class="text-center hover_part12">
+                        <div class="hov_title">Samaya Diamond and Gold Earring</div>
+                    </div>
+
+                </div>
+                <div class="col-sm-3" style="position: relative;">
+                    <img class="hov13" style="width: -webkit-fill-available;;" src="{% static 'app/images/Radhya/braclet1.svg' %}" alt="">
+                    <div class="text-center hover_part13">
+                        <div class="hov_title">Samaya Diamond and Gold Earring</div>
+                    </div>
+
+                </div>
+                <div class="col-sm-3" style="position: relative;">
+                    <img class="hov14" style="width: -webkit-fill-available;;" src="{% static 'app/images/Radhya/necklace1.svg' %}" alt="">
+                    <div class="text-center hover_part14">
+                        <div class="hov_title">Samaya Diamond and Gold Earring</div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="text-center mt-5">
+            <div class="arrival">Shop</div>
+            <div class="ar_bg"></div>
+        </div>
+        <div id="tabs31">
+            <li class="t3_item1">All</li>
+            <li class="t3_item1">Ring</li>
+            <li class="t3_item1">Earrings</li>
+            <li class="t3_item1">Bracelets</li>
+            <li class="t3_item1">Necklace</li>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-3">
+                <img class="cr_img" src="{% static 'app/images/Radhya/ring1.svg' %}"  alt="">
+                <div class="p_s">Ring</div>
+                <div class="p_name">Radhya diamond Ring</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+            <div class="col-sm-3">
+                <img class="cr_img" src="{% static 'app/images/Radhya/earring1.svg' %}" alt="">
+                <div class="p_s">Earring</div>
+                <div class="p_name">Radhya diamond earring</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+            <div class="col-sm-3">
+                <img class="cr_img" src="{% static 'app/images/Radhya/braclet1.svg' %} " alt="">
+                <div class="p_s">Bracelet</div>
+                <div class="p_name">Radhya diamond braclet</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+            <div class="col-sm-3">
+                <img class="cr_img" src="{% static 'app/images/Radhya/necklace1.svg' %}"alt="">
+                <div class="p_s">necklace</div>
+                <div class="p_name">Radhya diamond necklace</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5">
+            <div class="col-sm-3">
+                <img class="cr_img" src="{% static 'app/images/Radhya/ring1.svg' %}"  alt="">
+                <div class="p_s">Ring</div>
+                <div class="p_name">Radhya diamond Ring</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+            <div class="col-sm-3">
+                <img class="cr_img" src=" {% static 'app/images/Radhya/earring1.svg' %}"alt="">
+                <div class="p_s">Earring</div>
+                <div class="p_name">Radhya diamond earring</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+            <div class="col-sm-3">
+                <img class="cr_img" src=" {% static 'app/images/Radhya/braclet1.svg' %}" alt="">
+                <div class="p_s">Bracelet</div>
+                <div class="p_name">Radhya diamond braclet</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+            <div class="col-sm-3">
+                <img class="cr_img" src=" {% static 'app/images/Radhya/necklace1.svg' %}" alt="">
+                <div class="p_s">necklace</div>
+                <div class="p_name">Radhya diamond necklace</div>
+                <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".tabs2");
+    const tab = document.querySelector('.tabs')
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        tab.classList.toggle('active');
+    }
+    var tabs3 = document.getElementById('tabs3')
+    var btns = tabs3.getElementsByClassName("t3_item");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+    var tabs31 = document.getElementById('tabs31')
+    var btns1 = tabs31.getElementsByClassName("t3_item1");
+    for (var i = 0; i < btns1.length; i++) {
+        btns1[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+</html>
+{% endblock main-container %}

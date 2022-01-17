@@ -1,0 +1,139 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block link %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="{% static 'app/css/styles.css'%}" />
+  <style>
+    .curve {
+      position: absolute;
+      height: 225px;
+      width: 100%;
+      bottom: 0;
+    }
+    .curve::before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 100%;
+      width: 100%;
+      height: 200%;
+      background: #fff8f8;
+      z-index: -1;
+    }
+  </style>
+    
+{% endblock link %}
+
+    
+{% block main-container %}
+<div class="about-us-hero">
+  <h1 class="hero-headline">ABOUT US</h1>
+</div>
+<div class="greeting">
+  <h1 class="greet">Welcome to Our Store</h1>
+  <img class="flower-bg-up" src="  {% static 'app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png' %}"></img>
+  <div class="ar_bg"></div>
+  
+  <p class="greeting-text">
+    Est sit facilisi fames at. Augue eget morbi in congue magna faucibus
+    magnis vitae viverra. Vitae pretium sodales sagittis ullamcorper ornare
+    viverra nibh scelerisque. Arcu nisl lacus amet, sed eget. Orci, rhoncus
+    nulla ac orci nisl egestas. Non sapien erat egestas purus. Venenatis
+    semper non non sagittis sit et, dignissim quisque dis. Diam proin ac
+    commodo hendrerit leo neque feugiat porttitor viverra. <br /><br />
+    Proin enim, quis aliquam, elementum praesent cursus duis. Habitant vel
+    auctor orci ullamcorper eu laoreet. Sapien eget magna tristique mattis
+    accumsan pellentesque lectus. Feugiat nam neque, eget amet nam. Nibh
+    varius aenean morbi amet egestas. Venenatis sed risus morbi ipsum a.
+    Suspendisse et nullam sed facilisis scelerisque quis mauris. Habitasse
+    enim eget posuere quam. Feugiat massa sit scelerisque facilisis morbi
+    libero diam ultrices purus. Sed dictumst purus in semper feugiat ut
+    quisque donec posuere. Libero a vehicula sit ut eu gravida mattis. Urna
+    mauris egestas iaculis nullam elit. Sollicitudin semper mauris eu
+    tortor, lorem. Libero eget in sit massa tristique. Enim, nunc, arcu,
+    faucibus nisi, pharetra accumsan sit morbi vel.
+  </p>
+  <section class="block">
+    <div class="grid grid--1x2">
+      <div class="img ">
+        <div class="flower-img-container">
+          <img class="flower-img-up" src="{% static 'app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png' %} ">
+          <img class="feature__image " src=" {% static 'app/images/bg/Rectangle 40.png' %} " alt="" />
+          <img class="flower-img-down" src=" {% static 'app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png'%}">
+        </div>
+      </div>
+      <div class="text">
+        <h1 class="greet">Why Choose Us</h1>
+        <div class="ar_bg"></div>
+        <p class="greeting-text">
+          Est sit facilisi fames at. Augue eget morbi in congue magna
+          faucibus magnis vitae viverra. Vitae pretium sodales sagittis
+          ullamcorper ornare viverra nibh scelerisque. Arcu nisl lacus amet,
+          sed eget. Orci, rhoncus nulla ac orci nisl egestas. Non sapien
+          erat egestas purus. Venenatis semper non non sagittis sit et,
+          dignissim quisque dis. Diam proin ac commodo hendrerit leo neque
+          feugiat porttitor viverra.
+        </p>
+      </div>
+    </div>
+  </section>
+  <div class="curve"></div>
+</div>
+<section class="block info">
+  <div class="grid grid--1x3">
+    <div class="info-tag">
+      <div class="upper">2016</div>
+      <div class="lower">FOUNDED</div>
+    </div>
+    <div class="info-tag">
+      <div class="upper">1000+</div>
+      <div class="lower">Clients</div>
+    </div>
+    <div class="info-tag">
+      <div class="upper">15+</div>
+      <div class="lower">Cities Delivered</div>
+    </div>
+  </div>
+</section>
+<section class="block flower-bg-down-container">
+  <div class="grid grid--1x2">
+    <div class="img">
+      <img class="feature__image" src="  {% static 'app/images/bg/Rectangle 33.png' %} " alt="" />
+    </div>
+    <div class="text">
+      <h1 class="greet">Best Value Jewelry</h1>
+      <div class="ar_bg"></div>
+      <p class="best-value">
+        Lectus porttitor ac ut eget ut pretium gravida enim malesuada.
+        Tellus, enim, volutpat nibh elit libero cursus sit sollicitudin
+        nunc.
+      </p>
+      <ul class="check-list">
+        <li>
+          Lectus porttitor ac ut eget ut pretium gravida enim malesuada.
+        </li>
+        <li>
+          Lectus porttitor ac ut eget ut pretium gravida enim malesuada.
+        </li>
+        <li>
+          Lectus porttitor ac ut eget ut pretium gravida enim malesuada.
+        </li>
+        <li>
+          Lectus porttitor ac ut eget ut pretium gravida enim malesuada.
+        </li>
+        <li>
+          Lectus porttitor ac ut eget ut pretium gravida enim malesuada.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- <div class="flower-bg-down-container"><img class="flower-bg-down" src="./images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png"></img></div> -->
+  <img class="flower-bg-down" src="  {% static 'app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink 8.png' %}"</img>
+</section>
+
+{% endblock main-container %}
