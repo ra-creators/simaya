@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
     'app',
+    'user_manager',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -84,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'simaya.wsgi.application'
 
-
+AUTH_USER_MODEL = 'user_manager.User'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
