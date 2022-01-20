@@ -29,7 +29,7 @@ def ring_page(request):
     ear=Product.objects.filter(category="Earring")
     brac=Product.objects.filter(category="Bracelet")
     neck=Product.objects.filter(category="Necklace")
-    return render(request,"app/ring.html",{'rings':ring,'ears':ear,'bracs':brac,'necks':neck})
+    return render(request, "app/ring.html", {'rings':ring,'ears':ear,'bracs':brac,'necks':neck})
 
 def product_detail(request,pk):
     pro=Product.objects.get(pk=pk)

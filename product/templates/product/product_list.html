@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ page_heading }}
+{% endblock title %}
+
+{% block css %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="{% static 'app/css/ring.css'%}">
+{% comment %} <link rel="stylesheet" href="{% static 'app/css/styles.css' %}" /> {% endcomment %}
+{% endblock css %}
+
+{% block content %}
+    <div class="container">
+      <div class="collection">
+          <div class='card'>
+              <div class="card-img col-card">
+                  <img src="{% static 'app/images/img/man-ring.png' %} " alt="" >
+                  <div class="cardbg">
+                      <h1 class="text-fent">Man Ring Collection</h1><br>
+                      <a href="" class="more">Shop Now</a>
+                  </div>
+              </div>
+              <div class="ring-price">
+                  <h2 class="text-center text-fent">Man Ring Collection</h2>
+                
+              </div>  
+          </div>
+          <div class='card'>
+              <div class="card-img col-card">
+                  <img src="{% static 'app/images/img/woman-ring.png' %} " alt="" w>
+                  <div class="cardbg">
+                      <h1 class="text-fent">Woman Ring Collection</h1><br>
+                      <a href="#" class="more">Shop Now</a>
+                  </div>
+              </div>
+              <div class="ring-price">
+                  <h2 class="text-center text-fent">Woman Ring Collection</h2>   
+              </div>  
+          </div>   
+      </div>
+    </div>
+      
+    <div class="container">
+      <h1 class="all">All</h1>
+      <div class="ring-grid">
+          {% for product in products %}
+              <div class='card'>
+                  <div class="card-img">
+                      <img src="{{ product.get_primary_image }} " alt="" width='100%'>
+                      <div class="cardbg">
+                          <span><a href="#">View Product</a></span>
+                      </div>
+                  </div>
+                  <div class="ring-price">
+                      <h4>{{ product.category }}</h4>
+                      <h3>{{ product.name }}</h3>
+                      <span><strong>Rs.{{ product.price }}</strong></span>
+                      <a href="#" class="btn">Shop Now</a>
+                  </div>  
+              </div>
+          {% endfor %} 
+      </div>
+    </div>
+{% endblock %}
