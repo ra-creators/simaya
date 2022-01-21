@@ -1,9 +1,11 @@
+from email.mime import application
+from gc import collect
 from django.shortcuts import get_object_or_404, redirect
 import json 
 from django.shortcuts import render
 from django.core import serializers
 from django.http import Http404, HttpResponse
-from .models import Category, Product
+from .models import Category, Product, Collection
 
 # Create your views here.
 def index(request):
@@ -84,3 +86,43 @@ def categories_api_by_count(request, count, category=None):
     cat_json = serializers.serialize('json', cat)
     cat_json = add_img_url(cat_json)
     return HttpResponse(cat_json, content_type='application/json')
+
+def collection(request, category=None):
+    if category == None:
+        return Http404
+    context = {}
+    category_ = Category.objects.get(slug=category)
+    # if not collection_:
+    #     return Http404
+    products = Product.objects.filter(category=category_, available=True)
+    male = products.filter(gender='Man')
+    female = products.filter(gender='Woman')
+    if len(male) >= 1:
+        context['male_collection'] = male[0]
+    if len(female) >= 1:
+        context['female_collection'] = female[0]
+    collections = Collection.objects.filter(category=category_)
+    context.update({
+        'category_title': category_,
+        'collections': collections,
+        'products': products
+    })
+    # print(context)
+    return render(request, 'product/product_collection_list.html', context=context)
+
+def get_collection_names(request, category=None):
+    if category == None:
+        return Http404
+    cat = get_object_or_404(Category, slug=category)
+    col = Collection.objects.filter(category=cat)
+    collections = serializers.serialize('json', col)
+    print(collections)
+    return HttpResponse(collections, content_type='application/json')
+
+def collection_by_gender(request, category=None, gender="Woman"):
+    if category == None:
+        return Http404
+    cat = get_object_or_404(Category, slug=category)
+    p = Product.objects.filter(category=cat, available=True, gender=gender)
+    products = serializers.serialize('json', p)
+    return HttpResponse(products, content_type='application/json')

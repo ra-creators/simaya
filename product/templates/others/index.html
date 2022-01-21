@@ -75,16 +75,18 @@
             <a href="#"><div class="sn1 mt-3">Shop Now <i class="fa fa-arrow-right" aria-hidden="true"></i></div></a>
 </div>
 <div class=" bg-white">
-    <div class="text-center mt-3">
+    <div class="text-center mt-3" id='collection-wrapper'>
         <div class="arrival">Collection</div>
         <div class="ar_bg"></div>
         <div class="row">
             {% for category in categories %}
                 <div class="col-sm-3" style="position: relative;">
-                    <img class="hov11" style="width: -webkit-fill-available;;" src="{{ category.get_thumbnail }}" alt="">
-                    <div class="text-center hover_part11">
-                        <div class="hov_title">{{ category.name }}</div>
-                    </div>
+                    <a href="{% url 'collection' category=category.slug %}">
+                        <img class="hov11" style="width: -webkit-fill-available;;" src="{{ category.get_thumbnail }}" alt="">
+                        <div class="text-center hover_part11">
+                            <div class="hov_title">{{ category.name }}</div>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
         </div>

@@ -7,6 +7,11 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 # Create your models here.
 
+GENDER_CHOICES = (
+    ("Man", 'Man'),
+    ('Woman', 'Woman')
+)
+
 class Category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, unique=True)
@@ -32,18 +37,43 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         pass
+
+class Collection(models.Model):
+    name = models.CharField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    thumbnail = models.ImageField(
+        upload_to='categories/%Y/%m/%d', blank=True,
+        default='defaults/categories_no_img.png'
+    )
+
+    class Meta:
+        ordering = ('name', )
+        verbose_name = 'collection'
+        verbose_name_plural = 'collections'
     
+    def __str__(self):
+        return self.name
+
+    @property
+    def get_thumbnail(self):
+        if self.thumbnail:
+            return self.thumbnail.url
+        else:
+            return '/media/defaults/categories_no_img.png'
 
 class Product(models.Model):
     category = models.ForeignKey(
         Category, related_name='products', on_delete=models.SET_NULL, null=True, blank=True)
+    collection = models.ForeignKey(
+        Collection, related_name='products', on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, db_index=True) 
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=False)
     stocks = models.PositiveIntegerField(default=0)
-    # man_and_women = models.BooleanField(default=False)
+    gender = models.CharField(max_length=20, choices=GENDER_CHOICES)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -56,7 +86,10 @@ class Product(models.Model):
 
     @property
     def get_primary_image(self):
-        return self.images.all()[0]
+        try:
+            return self.images.all()[0]
+        except:
+            return '/media/defaults/categories_no_img.png'
 
     def update_stocks(self, quantity):
         quantity = int(quantity)
