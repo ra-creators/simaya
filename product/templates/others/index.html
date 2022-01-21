@@ -3,6 +3,11 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'product/css/home.css' %}">
+<style>
+    a{
+        text-decoration: none;
+    }
+</style>
 {% endblock css %}
 
 {% block title %}Radhya Jewels{% endblock title %}
@@ -10,19 +15,21 @@
 {% block content %}
 
 <div class="container">
-    <div class="row bg-white">
-        <div class="col-6 ">
-            <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
-        </div>
-        <div class="col-6 bg">
-            <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
-            <div class="text-center">
-                <div class="new">New Collection</div>
-                <div class="br">Beautiful Rigns</div>
-                <button class="sn">Shop Now</button>
+    <a href="{% url 'shop' %}">
+        <div class="row bg-white">
+            <div class="col-6 ">
+                <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+            </div>
+            <div class="col-6 bg">
+                <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+                <div class="text-center">
+                    <div class="new">New Collection</div>
+                    <div class="br">Beautiful Rigns</div>
+                    <button class="sn">Shop Now</button>
+                </div>
             </div>
         </div>
-    </div>
+    </a>
 </div>
 <div class="container" style="background-color: #FFF8F8;">
     <div class="text-center mt-5">
@@ -35,10 +42,10 @@
             <li class="t3_item">{{ cat.name }}</li>
         {% endfor %}
     </div>
-    <div class="row">
+    <div class="row" id='product-list'>
         {% for product in products %}
             <div class="col-sm-4 cr_content">
-                <img class="cr_img hov1" src="{{ product.get_primary_image }}" alt="">
+                <img class="cr_img hov1" src="{{ product.get_primary_image }}" alt="" width='100%'>
                 <div class="hover_part1 text-center">
                     <div class="cr_t">{{ product.name }}</div>
                     <button class="sh_n mt-5 mb-5">Shop Now</button>
@@ -65,11 +72,11 @@
             <div class="engg_t mt-2">Ring</div>
             <div class="engg_d mt-3">Pellentesque cras nunc ipsum hendrerit varius. Ullamcorper sed enim enim interdum
                 pulvinar magna. Orci feugiat tellus eleifend enim magna morbi tincidunt etiam turpis..</div>
-            <div class="sn1 mt-3">Shop Now <i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+            <a href="#"><div class="sn1 mt-3">Shop Now <i class="fa fa-arrow-right" aria-hidden="true"></i></div></a>
 </div>
 <div class=" bg-white">
     <div class="text-center mt-3">
-        <div class="arrival">Categories</div>
+        <div class="arrival">Collection</div>
         <div class="ar_bg"></div>
         <div class="row">
             {% for category in categories %}
@@ -80,73 +87,6 @@
                     </div>
                 </div>
             {% endfor %}
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="text-center mt-5">
-        <div class="arrival">Shop</div>
-        <div class="ar_bg"></div>
-    </div>
-    <div id="tabs31">
-        <li class="t3_item1">All</li>
-        <li class="t3_item1">Ring</li>
-        <li class="t3_item1">Earrings</li>
-        <li class="t3_item1">Bracelets</li>
-        <li class="t3_item1">Necklace</li>
-    </div>
-    <div class="row mt-5">
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/ring1.svg' %}" alt="">
-            <div class="p_s">Ring</div>
-            <div class="p_name">Radhya diamond Ring</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
-        </div>
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/earring1.svg' %}" alt="">
-            <div class="p_s">Earring</div>
-            <div class="p_name">Radhya diamond earring</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
-        </div>
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/braclet1.svg' %}" alt="">
-            <div class="p_s">Bracelet</div>
-            <div class="p_name">Radhya diamond braclet</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
-        </div>
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/necklace1.svg' %}" alt="">
-            <div class="p_s">necklace</div>
-            <div class="p_name">Radhya diamond necklace</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
-        </div>
-    </div>
-
-    <div class="row mt-5 mb-5">
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/ring1.svg' %}" alt="">
-            <div class="p_s">Ring</div>
-            <div class="p_name">Radhya diamond Ring</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
-        </div>
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/earring1.svg' %}" alt="">
-            <div class="p_s">Earring</div>
-            <div class="p_name">Radhya diamond earring</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
-        </div>
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/braclet1.svg' %}" alt="">
-            <div class="p_s">Bracelet</div>
-            <div class="p_name">Radhya diamond braclet</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
-        </div>
-        <div class="col-sm-3">
-            <img class="cr_img" src="{% static 'app/images/Radhya/necklace1.svg' %}" alt="">
-            <div class="p_s">necklace</div>
-            <div class="p_name">Radhya diamond necklace</div>
-            <div class="p_prices"><span class="p_before">Rs.79,000</span><span class="p_after">Rs.60,000</span></div>
         </div>
     </div>
 </div>
@@ -182,14 +122,44 @@
             this.className += " active";
         });
     }
-    var tabs31 = document.getElementById('tabs31')
-    var btns1 = tabs31.getElementsByClassName("t3_item1");
-    for (var i = 0; i < btns1.length; i++) {
-        btns1[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script>
+    $('#tabs3').on('click', '.t3_item', function(e) {
+        // get the value of the clicked button
+        e.preventDefault();
+        var category = $(this).text();
+        console.log(category);
+        var url = ""
+        if(category === "All"){
+            url = '/shop/api/count/3'
+        } else {
+            url = '/shop/api/count/3/' + category
+        }
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                var html = '';
+                data.forEach(function(p) {
+                    fields = p['fields'];
+                    html += `
+                    <div class="col-sm-4 cr_content">
+                        <a href="/product/${p.pk}">
+                            <img class="cr_img hov1" src="${ fields.img_url }" alt="" width='100%'>
+                            <div class="hover_part1 text-center">
+                                <div class="cr_t">${ fields.name}</div>
+                                <button class="sh_n mt-5 mb-5">Shop Now</button>
+                            </div>
+                        </a>
+                    </div>
+                    `;
+                });
+                $('#product-list').empty();
+                $('#product-list').html(html);
+            });
+    });
 </script>
 {% endblock js %}

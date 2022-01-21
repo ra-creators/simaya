@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="{% static 'product/css/styles.css' %}">
+{% endblock css %}
+
+{% block title %}
+Product
+{% endblock title %}
+
+{% block content %}
+    <h1 class="greet">PRODUCT</h1>
+    <div class="ar_bg"></div>
+    <div class="product-view">
+        <div class="images">
+            <div class="main-img">
+                <img id="main-image" class="responsive" src="{{ product.get_primary_image }}" alt="">
+            </div>
+            <div class="other-images">
+                {% for img in product.images.all %}
+                    <img class="static-img" src="{{ img.image.url }}" alt="">
+                {% endfor %}
+            </div>
+        </div>
+        <div class="fields">
+            <h1>{{ Product.name }}
+            </h1>
+            <div class="product-rating">
+                <div class="stars">
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star active"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <P class="no-of-reviews">20 Reviews</P>
+            </div>
+            <div class="product-form">
+                <div class="product-form-field">
+                    <label for="size">Select Size</label>
+                    <a class="link-product" href=""><nobr>Don’t know your ring size?</nobr></a>
+                    <br>
+                    <select id="sizes" class="product-form-select">
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+                <div class="product-form-field">
+                    <label for="metals">Metal</label>
+                    <br>
+                    <select id="metals" class="product-form-select">
+                        <option value="gold">GOLD</option>
+                        <option value="silver">SILVER</option>
+                        <option value="bronze">BRONZE</option>
+                        <option value="platinum">PLATINUM</option>
+                    </select>
+                </div>
+                <div class="product-form-field">
+                    <label for="diamond">Select Size</label>
+                    <a class="link-product" href="">Diamond Guide</a>
+                    <br>
+                    <select id="diamond" class="product-form-select">
+                        <option value="ij-si">IJ-SI</option>
+                        <option value="13">filler</option>
+                        <option value="14">filler</option>
+                        <option value="15">filler</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bestseller">
+                Bestseller
+            </div>
+            <div class="price">
+                <div class="keep">Rs. {{ product.price }}</div>
+                {% comment %} <div class="cut">Rs.40000</div> {% endcomment %}
+            </div>
+            {% comment %} <div class="flat">Flat 10% on MRP</div> {% endcomment %}
+            <div class="cart-buttons">
+                <button class="add-to-cart"><nobr>Add to Cart</nobr></button>
+                <button class="buy-now"><nobr>Buy Now</nobr></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-detail">
+        <h2 class="product-detail-heading">Product Details</h2>
+        <ul class="product-desc">
+            <li>width - 6 mm</li>
+            <li>height - 5.6 mm</li>
+            <li>purity - 14kt</li>
+            <li>weight - 1.99 g</li>
+            <li>size - 12</li>
+        </ul>
+    </div>
+    <div class="diamond-detail">
+        <h2 class="product-detail-heading">Diamond Details</h2>
+        <table>
+            <tr>
+                <th>DIAMOND TYPE</th>
+                <th>SETTING TYPE</th>
+                <th>TOTAL NUMBER</th>
+                <th>TOTAL WEIGHT</th>
+            </tr>
+            <tr>
+                <td>IJ-SI</td>
+                <td>Prong</td>
+                <td>19</td>
+                <td>0.092 ct</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="https://kit.fontawesome.com/9dddb02c5f.js" crossorigin="anonymous"></script>
+    <script>
+        const staticImages = document.querySelectorAll(".static-img");
+        const mainImage = document.getElementById('main-image');
+        staticImages.forEach(element => {
+            element.addEventListener("click",()=>{
+                mainImage.src = element.getAttribute("src");
+            })
+        });
+    </script>
+{% endblock js %}    

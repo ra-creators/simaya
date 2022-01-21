@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'product/css/home.css' %}">
+<style>
+    a{
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+{% endblock css %}
+
+{% block title %}Shop{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center mt-5">
+        <div class="arrival">Shop</div>
+        <div class="ar_bg"></div>
+    </div>
+    <div id="tabs31">
+        <li class="t3_item1" id='all'>All</li>
+        {% for category in categories %}
+            <li class="t3_item1">{{ category.name }}</li>
+        {% endfor %}
+    </div>
+    <div class="row mt-5" id='product-list'>
+        {% for product in products %}
+            <div class="col-sm-3">
+                <a href="{% url 'single_product' pk=product.id %}">
+                    <img class="cr_img" src="{{ product.get_primary_image }}" alt="" width='100%'>
+                    <div class="p_s">{{ product.category.name }}</div>
+                    <div class="p_name">{{ product.name }}</div>
+                    <div class="p_prices"><span>Rs. {{ product.price }}</span></div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".tabs2");
+    const tab = document.querySelector('.tabs')
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        tab.classList.toggle('active');
+    }
+    
+    var tabs31 = document.getElementById('tabs31')
+    var btns1 = tabs31.getElementsByClassName("t3_item1");
+    for (var i = 0; i < btns1.length; i++) {
+        btns1[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script>
+    $('#tabs31').on('click', '.t3_item1', function(e) {
+        // get the value of the clicked button
+        e.preventDefault();
+        var category = $(this).text();
+        // console.log(category);
+        var url = '/shop/api/'
+        if(category === "All"){
+            url = '/shop/api/'
+        } else {
+            url = '/shop/api/' + category
+        }
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                var html = '';
+                data.forEach(function(p) {
+                    fields = p['fields'];
+                    html += `
+                    <div class="col-sm-3">
+                        <a href="/product/${ p.pk }"> 
+                            <img class="cr_img" src="${ fields.img_url }" alt="" width='100%'>
+                            <div class="p_s">${ fields.category.name }</div>
+                            <div class="p_name">${ fields.name }</div>
+                            <div class="p_prices"><span>Rs. ${ fields.price }</span></div>
+                        </a>
+                    </div>
+                    `;
+                });
+                $('#product-list').empty();
+                $('#product-list').html(html);
+            });
+    });
+</script>
+{% endblock js %}
