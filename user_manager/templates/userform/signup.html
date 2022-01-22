@@ -1,0 +1,75 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+{% endblock link %}
+{% block main-container %}
+    <div class="container">
+        
+                
+        <h1>RADHYA JEWELS</h1>
+    </div>
+    <div class="sign-in-form">
+        <form action="" method="POST">
+            {% csrf_token %} 
+            <h1>Create a account</h1>
+            <p>Already a user? <a href="{% url 'login' %}">Log-in here</a></p>
+            {% if messages %}
+                <ul class="messages alert alert-danger">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="form-group">
+                <input type="text" class='entry' name="email" id="email" class="form-control" placeholder="Enter your Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class='entry' name="password" id="password" class="form-control" placeholder="Enter your Password" required>
+            </div>
+            <div class="form-group">
+                
+                <input type="password" class='entry' name="password2" id="password2" class="form-control" placeholder="Re-Enter your Password" required>
+            </div>
+            <div class="form-group">
+                
+                <input type="text" class='entry' name="first_name" id="first_name" class="form-control" placeholder="Enter your First Name" required>    
+            </div>
+            <div class="form-group">
+                
+                <input type="text" class='entry' name="last_name" id="last_name" class="form-control" placeholder="Enter your Last Name" required>
+            </div>
+            <div class="form-group">
+            
+                <input type="text" class='entry' name="phone" id="phone" class="form-control" placeholder="Enter your Phone Number" required>
+            </div>
+            <div class='form-group'>
+                <input type="date" class='entry' name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" required>
+            </div>
+            <div class='form-group'>
+                <input type="file" class='entry' accept="profile_pic/" name="profile_pic" id="profile_pic" class="form-control" required>
+            </div>
+
+            <button type="submit" class="continue">Continue</button>
+            <hr>
+            <p class="or"> or </p>
+        </form>   
+        <form action="" method='post'>
+            {% csrf_token %}
+            <button type="submit" id="signup-google" class="signup-google" ><i class="fa fa-google"></i>
+                Continue with Google</button>
+        </form>
+        <form action="" method='post'>
+            {% csrf_token %}
+            <button type="submit" id="signup-facebook" class="signup-facebook"><i class="fa fa-facebook-f"></i> 
+                Continue with Facebook</button>
+        </form>
+        <button type="button" id="signup-apple" class="signup-apple"> <i class="fa fa-apple"></i> Continue with Apple</button>
+        
+        </div>
+    </div>
+
+
+{% endblock main-container %}

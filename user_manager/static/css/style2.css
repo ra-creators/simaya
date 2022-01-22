@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif,Poppins;
+    
+    box-sizing: border-box; 
+    background-image:linear-gradient(to right,rgba(247, 131, 131, 0.76),rgba(247, 131, 131, 0.76)), url('../images/background1.png');
+    background-blend-mode: screen;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1{
+    font-family: 'El Messiri', sans-serif;
+    line-height: .8;
+}
+.container{
+    
+    padding-left: 10%;
+    font-size: 29px;
+    color: #fff;
+    font-family: 'Peignot','Analogue';
+    font-style: normal;
+    line-height: .1%;
+    float: left;
+    text-align: center;
+}
+.container img{
+    margin-top:0;
+    margin-bottom: -17%;
+    width: 60%;
+    height: 100%;
+}
+.container img::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(225deg,rgba(247, 131, 131, 0.76),#000000);
+    z-index: 1;
+
+}
+
+.sign-in-form{
+    width: 100%;
+    
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 20px;
+    margin: 5% 4% 5% 3%;
+    text-align: center;
+    float: right;
+    padding-bottom: 5%;
+    border-radius: 5px;
+    max-width: 500px;
+    max-height: 700px;
+}
+
+.sign-in-form h1{
+    text-align: left;
+    margin-top: 1%;
+}
+
+#email,#first_name,#last_name,#date_of_birth,#password,#password2,#phone,#profile_pic{
+    margin: 10px 10px 0 0;
+    width: 95%;
+    border:  #bdbdbd;
+    margin-top: 7%;
+    border-bottom:  1px solid #bdbdbd;
+    outline: none;
+    
+}
+li{
+    list-style: none;
+}
+button{
+    color: #fff;
+    width: 90%;
+    padding: 2%;
+    border-radius: 10px;
+    font-size: 15px;
+    margin: 1% 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    letter-spacing: .8px;
+    word-spacing: .1px;
+    margin-top: 5%;
+}
+
+.continue{
+    background: #2F80ED;
+    width: 45%;
+    float: right;
+    
+}
+.signup-google{
+    background: #fff;
+    border: 1px solid #828282;
+    border-radius: 5px;
+    color: #000000;
+}
+a{
+    text-decoration: none;
+}
+hr{
+    margin-top: 80px;
+    color: #00000042;
+}
+.or{
+    background: #fff;
+    width: 30px;
+    margin: -19px auto 10px;
+}
+.fa-google{
+    font-size: 100%;
+}
+
+#signup-facebook{
+    background: #2F80ED;
+    border-radius: 5px;
+}
+#signup-apple{
+    background: #000000;
+    border-radius: 5px;
+}
+.sign-in-form > form:nth-child(1) > p:nth-child(2) {
+    text-align: left;
+    margin-top: -2%;
+   }
+   
+
+
+@media all and (max-width:1030px)   {
+    .container{
+        padding-left: 4%;
+    }
+    .sign-in-form{
+        margin-left: 2%;
+    }
+}
+
+@media all and (max-width:951px )   {
+    .container{
+        padding-left: 1%;
+    }
+}
+
+@media all and (max-width:940px )   {
+    .container{
+        padding-left: 2%;
+        font-size: 30px;
+    }
+    .sign-in-form{
+        max-width: 440px;
+    }
+}
+
+@media all and (max-width:760px )   {
+    .container{
+        padding-left: 0;
+        padding-top: 0;
+        float: none;
+    }
+    .sign-in-form{
+        padding-bottom: 0;
+        min-width: 250px;
+        float: none;
+        margin: 5% auto;
+        max-width: 500px;
+    }
+    .container img{
+        margin-top: 0;
+        margin-bottom: -13%;
+        width: 50%;
+    }
+}
+@media all and (max-width:580px)   {
+    .container{
+        font-size: 30px;
+        float: none;
+        padding-left: 4%;
+        padding-top: 0;
+        padding-bottom: 2%;
+    }
+    .sign-in-form{
+        max-width: 300px;
+        float: none;
+        margin: 5% auto;
+        padding-bottom: 7%;
+    }
+}
+@media all and (max-width:320px){
+    .sign-in-form{
+        max-width: 250px;
+    }
+}

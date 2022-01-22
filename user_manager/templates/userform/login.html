@@ -1,0 +1,52 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+
+
+{% endblock link %}
+{% block main-container %}
+    <div class="container">  
+        <h1>RADHYA JEWELS</h1>
+    </div>
+    <div class="sign-in-form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h1>Log In</h1>
+            <p>New user ? <a href="{% url 'signup' %}">Create an Account</a></p>
+
+            {% if messages %}
+                <ul class="messages alert alert-danger">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        
+            <input type="email" placeholder="Enter your Email Address" name="email" id="email" required>
+            
+            <input type="password" placeholder="Enter your password" name="password" id="password" required>
+
+            
+            <button type="submit" class="continue">Continue</button>
+            <hr>
+        </form>
+        <p class="or"> or </p>
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <button type="submit" id="signup-google" class="signup-google" ><i class="fa fa-google"></i>
+                Continue with Google</button>
+        </form>
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <button type="submit" id="signup-facebook" class="signup-facebook"><i class="fa fa-facebook-f"></i> 
+                Continue with Facebook</button>
+        </form>
+        <small><a href="{% url 'password_reset'%}">Forgot Password ?</a></small> <br>
+    
+        <button type="button" id="signup-apple" class="signup-apple"> <i class="fa fa-apple"></i> Continue with Apple</button>
+
+       
+    </div>
+{% endblock main-container %}

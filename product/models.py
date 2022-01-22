@@ -1,6 +1,6 @@
 from pydoc import describe
 from unicodedata import category
-from zoneinfo import available_timezones
+
 from django.db import models
 from django.contrib.auth import get_user_model
 

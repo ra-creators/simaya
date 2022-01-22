@@ -127,17 +127,5 @@ def profile_page(request):
     
 
 
-def signin_page(request):
-    return render(request,"app/signIn.html")
-
-
-def login_page(request):
-    return render(request,"app/logIn.html")
-
-
-
-def logout_page(request):
-    logout(request)
-    return HttpResponseRedirect('/')
 
 
