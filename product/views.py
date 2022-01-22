@@ -116,13 +116,22 @@ def get_collection_names(request, category=None):
     cat = get_object_or_404(Category, slug=category)
     col = Collection.objects.filter(category=cat)
     collections = serializers.serialize('json', col)
-    print(collections)
+    # print(collections)
     return HttpResponse(collections, content_type='application/json')
 
-def collection_by_gender(request, category=None, gender="Woman"):
+def category_by_gender(request, category=None, gender="Woman"):
     if category == None:
         return Http404
     cat = get_object_or_404(Category, slug=category)
     p = Product.objects.filter(category=cat, available=True, gender=gender)
     products = serializers.serialize('json', p)
     return HttpResponse(products, content_type='application/json')
+
+def collection_products(request, collection=None):
+    if collection == None:      
+        return Http404
+    collection_ = Collection.objects.get(slug=collection)
+    products = Product.objects.filter(collection=collection_, available=True)
+    products_json = serializers.serialize('json', products)
+    # print(products_json)
+    return HttpResponse(add_img_url(products_json), content_type='application/json')

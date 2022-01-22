@@ -15,10 +15,13 @@ urlpatterns = [
     path('shop/api/count/<int:count>', views.categories_api_by_count, name='categories_api_by_count'),
     path('shop/api/count/<int:count>/<slug:category>', views.categories_api_by_count, name='categories_api_by_count_'),
 
+    # Collection Products
+    path('shop/collection/product/<slug:collection>', views.collection_products, name='collection_products'),
+
     # Shop collection
     path('shop/collection/<slug:category>', views.collection, name='collection'),
-    path('shop/product/collection/<slug:category>/<slug:gender>', views.collection_by_gender, name='collection_by_gender'),
-    path('shop/name/collection/<slug:category>', views.get_collection_names, name='get_collection_names'),
+    path('shop/product/collection/<slug:category>/<slug:gender>', views.category_by_gender, name='category_by_gender'),
+    path('shop/name/collection/<slug:category>', views.get_collection_names, name='get_collection_names'),    
 
     # products_by_categories
     path('categories/', views.categories, name='categories'),
