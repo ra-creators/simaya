@@ -5,6 +5,9 @@
 header , footer{
     background: rgba(247, 131, 131, 0.79);
 }
+a{
+    color:  #fff;
+}
 footer{
     bottom: 0;
 }
@@ -60,7 +63,7 @@ footer{
     text-align: center;
     color: #FFFFFF;
 }
-.tb{
+.tb a{
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
@@ -70,7 +73,10 @@ footer{
     color: #FFFFFF;
     text-decoration: none;
 }
-.tb.active{
+.tb a:hover{
+    color: #B72B2B;
+}
+.tb.active a{
     color: #B72B2B;
     text-decoration: underline;
 }

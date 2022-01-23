@@ -68,11 +68,18 @@
     </div>
 </div>
 <div class="container engg mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <img style="width: 100%;" src="{% static 'app/images/img/enggagementRing.png' %}" alt="">
+        </div>
+        <div class="col-sm-6">
             <div class="engg_t mt-2">Enggagement</div>
             <div class="engg_t mt-2">Ring</div>
             <div class="engg_d mt-3">Pellentesque cras nunc ipsum hendrerit varius. Ullamcorper sed enim enim interdum
                 pulvinar magna. Orci feugiat tellus eleifend enim magna morbi tincidunt etiam turpis..</div>
             <a href="#"><div class="sn1 mt-3">Shop Now <i class="fa fa-arrow-right" aria-hidden="true"></i></div></a>
+        </div>
+    </div>
 </div>
 <div class=" bg-white">
     <div class="text-center mt-3" id='collection-wrapper'>
@@ -111,8 +118,8 @@
     hamburger.addEventListener("click", mobileMenu);
 
     function mobileMenu() {
-        hamburger.classList.toggle("active");
         navMenu.classList.toggle("active");
+        hamburger.classList.toggle("active");
         tab.classList.toggle('active');
     }
     var tabs3 = document.getElementById('tabs3')
@@ -120,7 +127,7 @@
     for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function() {
             var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
+            current[0].className = current[0].className.replace("active", "");
             this.className += " active";
         });
     }

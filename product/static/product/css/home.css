@@ -283,6 +283,9 @@
     .p_prices{
         display: grid;
     }
+    .engg_t{
+        font-size: 30px;
+    }
 }
 @media screen  and (max-width:992px) and (min-width: 767px){
     .ring_op{
@@ -290,5 +293,8 @@
     }
     .p_prices{
         display: grid;
+    }
+    .engg_t{
+        font-size: 40px;
     }
 }
