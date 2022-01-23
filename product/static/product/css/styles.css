@@ -4,7 +4,7 @@ body {
 }
 /* Hero component */
 .about-us-hero {
-  background: url("../images/bg/Rectangle.png");
+  background: url("/app/images/bg/Rectangle.png");
   background-size: auto;
   height: 494px;
 }
@@ -20,7 +20,7 @@ body {
   margin: 0;
 }
 .ar_bg {
-  background-image: url("../images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink\ 8.png");
+  background-image: url("/app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink\ 8.png");
   height: 100px;
   background-position: center;
   display: flex;
