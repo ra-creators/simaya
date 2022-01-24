@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Poppins:wght@200&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="{% static 'product/css/styles.css' %}">
+
 {% endblock css %}
 
 {% block title %}
@@ -84,7 +85,12 @@ Product
             </div>
             {% comment %} <div class="flat">Flat 10% on MRP</div> {% endcomment %}
             <div class="cart-buttons">
-                <button class="add-to-cart"><nobr>Add to Cart</nobr></button>
+                <button class="add-to-cart" onClick="addToCart(event)"
+                data-bs-toggle="modal" data-bs-target="#cartModal" 
+                data-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}"
+                data-stock="{{ product.stocks }}" data-img="{{ product.get_primary_image }}"
+
+                ><nobr>Add to Cart</nobr></button>
                 <button class="buy-now"><nobr>Buy Now</nobr></button>
             </div>
         </div>
@@ -118,6 +124,8 @@ Product
     </div>
 {% endblock %}
 {% block js %}
+<script src="{% static 'cart/js/cart.js' %}" async></script>
+
     <script src="https://kit.fontawesome.com/9dddb02c5f.js" crossorigin="anonymous"></script>
     <script>
         const staticImages = document.querySelectorAll(".static-img");

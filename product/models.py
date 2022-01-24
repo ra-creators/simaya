@@ -1,6 +1,6 @@
 from pydoc import describe
 from unicodedata import category
-
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -83,6 +83,10 @@ class Product(models.Model):
     
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('product', args=[self.id])
+    
 
     @property
     def get_primary_image(self):
