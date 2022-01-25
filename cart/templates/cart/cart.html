@@ -6,6 +6,11 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+    {% comment %} <script src="{% static 'cart/js/cart.js' %}" async></script> {% endcomment %}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{% static 'cart/js/cart_fun.js' %}"></script>
 {% endblock  %}
 {% block title %}Simaya{% endblock title %}
 
@@ -26,36 +31,26 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col-sm-6 mb-5 items_container">
-                    <div><span class="item_add">1 Item Added</span><span class="total">Total 34000</span></div>
+                    <div onclick="getTotalPrice()"><span class="item_add">1 Item Added</span><span class="total" id='total-price'>Total {{ cart.get_total_price }}</span></div>
                     <hr>
-                    <div class="row mt-5 item_row">
-                        <div class="col-3"><img src="{% static 'app/images/Radhya/diamond_ring.svg' %}" alt="" class="i_img"></div>
-                        <div class="col-5">
-                            <div class="t2">Diamond Ring</div>
-                            <div class="for mt-3">for women</div>
-                            <div class="o_inc mt-3"><span class="for">Qty</span>
-                                <button class="minus">-</button><div class="num cart-quantity">1</div><button class="plus">+</button>
+                    {% for item in cart %}
+                    {% with product=item.product %}
+                        <div class="row mt-5 item_row" id='product_{{ product.id }}'>
+                            <div class="col-3"><img src="{{ product.get_primary_image }}" alt="" class="i_img"></div>
+                            <div class="col-5">
+                                <div class="t2">{{ product.name }}</div>
+                                <div class="for mt-3">for {{ product.gender }}</div>
+                                <div class="o_inc mt-3"><span class="for">Qty</span>
+                                    <button class="minus" onclick="decreaseCount({{ product.id }})">-</button><div class="num cart-quantity" id="quantity-{{ product.id }}">{{ item.quantity }}</div><button class="plus" onclick="increaseCount({{ product.id }})">+</button>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="t2">Price - <span class='cart-price'>{{ item.price }}</span></div>
+                                <div class="t2 mt-5 remove-item" onclick="removeItemId({{ product.id }})">REMOVE</div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="t2">Price - <span class='cart-price'>34000</span></div>
-                            <div class="t2 mt-5 remove-item">REMOVE</div>
-                        </div>
-                    </div>
-                    <div class="row mt-5 item_row">
-                        <div class="col-3"><img src="{% static 'app/images/Radhya/diamond_ring.svg' %}" alt="" class="i_img"></div>
-                        <div class="col-5">
-                            <div class="t2">Diamond Ring</div>
-                            <div class="for mt-3">for women</div>
-                            <div class="o_inc mt-3"><span class="for">Qty</span>
-                                <button class="minus">-</button><div class="num cart-quantity">1</div><button class="plus">+</button>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="t2">Price - <span class='cart-price'>34000</span></div>
-                            <div class="t2 mt-5 remove-item">REMOVE</div>
-                        </div>
-                    </div>
+                    {% endwith %}
+                    {% endfor %}
                     {% comment %} <div class="row mt-5 item_row">
                         <div class="col-3"><img src="{% static 'app/images/Radhya/diamond_ring.svg' %}" alt="" class="i_img"></div>
                         <div class="col-5">
@@ -75,7 +70,7 @@
                             <div class="details">Price</div>
                         </div>
                         <div class="col-6">
-                            <div class="det_desc">34000</div>
+                            <div class="det_desc" id='cart-total'>{{ cart.get_total_price }}</div>
                         </div>
                     </div>
                     <div class="row">
@@ -86,20 +81,20 @@
                             <div class="det_desc">0</div>
                         </div>
                     </div>
-                    <div class="row">
+                    {% comment %} <div class="row">
                         <div class="col-6">
                             <div class="details">Free Delivery</div>
                         </div>
                         <div class="col-6">
                             <div class="det_desc">0</div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                     <div class="row">
                         <div class="col-6">
                             <div class="total float-start mt-3">Total Amount</div>
                         </div>
                         <div class="col-6">
-                            <div class="total float-start mt-3" id='cart-total'>34000</div>
+                            <div class="total float-start mt-3" id='total-after-discount'>{{ cart.get_total_price }}</div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-5">
@@ -119,7 +114,7 @@
     </div>
 {% endblock %}
 {% block js %}
-<script src="{% static 'cart/js/cart.js' %}" async></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>

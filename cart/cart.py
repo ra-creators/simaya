@@ -30,19 +30,29 @@ class Cart(object):
     def save(self):
         self.session.modified = True
 
-    def add(self, product, quantity=1, override=False):
+    def print_cart(self):
+        print(self.cart)
+
+    def add(self, product, price, size, metal, diamond, quantity=1, override=False):
         product_id = str(product.id)
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 0,
-                                     'price': (str(product.price))}
+                                     'price': (str(price)), 
+                                     'size': size,
+                                     'metal': metal,
+                                     'diamond': diamond}
         if override:
             self.cart[product_id]['quantity'] = int(str(quantity))
         else:
             self.cart[product_id]['quantity'] += int(str(quantity))
         self.save()
+        
 
     def remove(self, product):
-        product_id = str(product.id)
+        try:
+            product_id = str(product.id)
+        except:
+            product_id = str(product)
         if product_id in self.cart:
             del self.cart[product_id]
             self.save()
@@ -50,3 +60,21 @@ class Cart(object):
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
     
+    def increase_count(self, product_id):
+        pid = str(product_id)
+        if pid in self.cart:
+            self.cart[pid]['quantity'] += 1
+            self.save()
+            return True
+        return False
+    
+    def decrease_count(self, product_id):
+        pid = str(product_id)
+        if pid in self.cart:
+            self.cart[pid]['quantity'] -= 1
+            if self.cart[pid]['quantity'] == 0:
+                self.remove(product_id)
+            else:
+                self.save()
+            return True
+        return False
