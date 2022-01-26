@@ -1,6 +1,5 @@
 from decimal import Decimal
 from django.conf import settings
-from urllib3 import proxy_from_url
 from product.models import Product
 
 class Cart(object):

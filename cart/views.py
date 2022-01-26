@@ -1,9 +1,4 @@
-from importlib.metadata import requires
-from itertools import product
 import json
-from math import prod
-from tkinter import dialog
-from webbrowser import get
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect, get_list_or_404
 from django.views.decorators.http import require_POST

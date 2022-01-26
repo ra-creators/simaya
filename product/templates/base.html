@@ -32,7 +32,7 @@
                 
                 {% endif %}
                 <span class="m1"><img src="{% static 'app/images/Radhya/wishlist.svg' %}" alt=""> My Wishlist(0)</span>
-                <span class="m1"><img src="{% static 'app/images/Radhya/cart.svg' %}" alt=""> <a href="{% url 'cartpage'%}">Cart</a>
+                <span class="m1"><img src="{% static 'app/images/Radhya/cart.svg' %}" alt=""> <a href="{% url 'cart'%}">Cart</a>
                    </span>
             </div>
         </div>
@@ -42,11 +42,11 @@
             <span class="bar"></span>
         </div>
         <div class="tabs2">
-            <li class="tb active"><a href=" {% url 'index' %}">Home</a></li>
+            <li class="tb active"><a href="{% url 'index' %}">Home</a></li>
             <li class="tb"> <a href="#collection-wrapper">Jewellery & Collection</a></li>
             <li class="tb"><a href="{% url 'shop' %}">Our Store</a></li>
-            <li class="tb"><a href="{% url 'contactpage'%}">Contact</a></li>
-            <li class="tb"><a href="{% url 'blogpage'%}">Blogs</a></li>
+            <li class="tb"><a href="">Contact</a></li>
+            <li class="tb"><a href="">Blogs</a></li>
         </div>
     </header>
 
@@ -72,8 +72,8 @@
             <div class="col-sm-2 link_col">
                 <div class="f_m">Information</div>
                 <div class="link_tab">
-                    <a href="{% url 'aboutpage' %}"><li class="f_links">About Samaya Diamond</li></a>
-                    <a href="{% url 'contactpage' %}"><li class="f_links">Contact Us</li></a>
+                    <a href=""><li class="f_links">About Samaya Diamond</li></a>
+                    <a href=""><li class="f_links">Contact Us</li></a>
                 </div>
             </div>
             <div class="col-sm-2 link_col">
