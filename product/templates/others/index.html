@@ -93,11 +93,14 @@
         <div class="owl-carousel owl-theme" id='product-list'>
             {% for product in products %}
             <div class="item cr_content">
+                <a href="/product/{{ product.id }}">
                 <img class="cr_img hov1" src="{{ product.get_primary_image }}" alt="" width='100%'>
                 <div class="hover_part1 text-center">
+
                     <div class="cr_t">{{ product.name }}</div>
                     <button class="sh_n mt-5 mb-5">Shop Now</button>
                 </div>
+                </a>
             </div>
             {% endfor %}
         </div>

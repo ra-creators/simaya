@@ -1,10 +1,11 @@
 from email.mime import application
-from gc import collect
 from django.shortcuts import get_object_or_404, redirect
 import json 
 from django.shortcuts import render
 from django.core import serializers
 from django.http import Http404, HttpResponse
+
+from cart.cart import Cart
 from .models import Category, Product, Collection
 
 # Create your views here.
@@ -70,8 +71,10 @@ def single_product_view(request, pk=None):
     if not pk:
         redirect('index')
     product = get_object_or_404(Product, pk=pk)
+    # cart_product_form = CartAddProductForm()
     context = {
         'product': product,
+        # 'cart_product_form': cart_product_form
     }
     return render(request, 'product/single_product.html', context=context)
 
