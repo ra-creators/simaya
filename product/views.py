@@ -1,4 +1,3 @@
-from email.mime import application
 from django.shortcuts import get_object_or_404, redirect
 import json 
 from django.shortcuts import render

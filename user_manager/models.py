@@ -90,6 +90,9 @@ class UserAddress(models.Model):
     postal_code = models.CharField(max_length=6)
     city = models.CharField(max_length=200)
     country = models.CharField(max_length=200, default="India")
+    address_type = models.CharField(max_length=20, choices=(
+        ("Home", 'Home'), ("Work", 'Work'),
+    ), default="Home")
 
     def __str__(self) -> str:
         return (self.postal_code + " : " + self.address[0:50])

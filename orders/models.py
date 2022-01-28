@@ -6,6 +6,14 @@ from product.models import Product
 from user_manager.models import UserAddress
 User = get_user_model()
 
+STATUS_CHOICES = (
+    ('Created', 'Created'),
+    ('Picked Up', 'Picked Up'),
+    ('Out For Delivery', 'Out For Delivery'),
+    ('Delivered', 'Delivered'),
+    ('Cancelled', 'Cancelled'),
+)
+
 # Create your models here.
 class Order(models.Model):
     user = models.ForeignKey(
@@ -38,12 +46,13 @@ class Order(models.Model):
 
     @property
     def discount_amount(self):
-        pass
+        return float(self.discount) * float(self.get_total_cost())
 
     def save(self, *args, **kwargs):
         # for order_item in self.items.all():
         #     try:
         super().save(*args, **kwargs)
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,
@@ -64,3 +73,50 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
+
+
+# class OrderTracking(models.Model):
+#     order = models.OneToOneField(Order, 
+#                                  related_name='order_tracking',
+#                                  on_delete=models.CASCADE)
+#     created = models.DateTimeField(auto_now_add=True)
+#     updated = models.DateTimeField(auto_now=True)
+
+#     def __str__(self):
+#         return str(self.id)
+
+class OrderTrackingStatus(models.Model):
+    Order = models.ForeignKey(Order,
+                              related_name='order_tracking_status',
+                              on_delete=models.CASCADE)
+    # order_tacking = models.ForeignKey(OrderTracking,
+    #                                   related_name='order_tracking_status',
+    #                                   on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    message = models.CharField(max_length=100, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        if self.message:
+            return f"{self.status} -  {self.message}"
+        else:
+            return f"{self.status}"
+
+    @property
+    def get_message(self):
+        if self.message:
+            return self.message
+        else:
+            return ""
+
+    @property
+    def get_location(self):
+        if self.location:
+            return self.location
+        else:
+            return ""
+
+    @property
+    def getDetails(self):
+        return f"{self.status} - {self.get_location} {self.created} {self.get_message}"
