@@ -8,10 +8,71 @@
 {% block title %}Shop{% endblock title %}
 
 {% block content %}
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row bg-white">
+            <div class="col-6 ">
+                <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+            </div>
+            <div class="col-6 bg">
+                <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                <div class="text-center" style="z-index: 999;">
+                    <div class="new">New Collection</div>
+                    <div class="br">Beautiful Rings</div>
+                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row bg-white">
+            <div class="col-6 ">
+                <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+            </div>
+            <div class="col-6 bg">
+                <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                <div class="text-center" style="z-index: 999;">
+                    <div class="new">New Collection</div>
+                    <div class="br">Beautiful Rings</div>
+                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row bg-white">
+            <div class="col-6 ">
+                <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+            </div>
+            <div class="col-6 bg">
+                <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                <div class="text-center" style="z-index: 999;">
+                    <div class="new">New Collection</div>
+                    <div class="br">Beautiful Rings</div>
+                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
 <div class="container">
     <div class="text-center mt-5">
         <div class="arrival">Shop</div>
-        <div class="ar_bg"></div>
+        <img src="{%static '/app/images/Radhya/d1.svg' %}" style="margin-top: -7%;" alt="">
+    </div>
+    <div class="d-flex justify-content-between mb-5">
+        <div class="spec"> Showing 100 results for rings</div>
+        <div><img style="width: 50px; height: 50px;" src="{% static '/app/images/Radhya/Filter.png' %}" alt=""></div>
     </div>
     <div id="tabs31">
         <li class="t3_item1" id='all'>All</li>
@@ -55,8 +116,7 @@
         navMenu.classList.toggle("active");
         tab.classList.toggle('active');
     }
-    
-    var tabs31 = document.getElementById('tabs31')
+    var tabs31 = document.getElementById('tabs31');
     var btns1 = tabs31.getElementsByClassName("t3_item1");
     for (var i = 0; i < btns1.length; i++) {
         btns1[i].addEventListener("click", function() {
