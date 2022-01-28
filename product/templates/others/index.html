@@ -4,7 +4,7 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'product/css/home.css' %}">
 <style>
-    a{
+    a {
         text-decoration: none;
     }
 </style>
@@ -15,63 +15,67 @@
 {% block title %}Radhya Jewels{% endblock title %}
 
 {% block content %}
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="row bg-white">
-            <div class="col-6 ">
-                <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+<section>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row bg-white">
+                    <div class="col-6 ">
+                        <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+                    </div>
+                    <div class="col-6 bg">
+                        <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+                        <div class="text-center" style="z-index: 999;">
+                            <div class="new">New Collection</div>
+                            <div class="br">Beautiful Rings</div>
+                            <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 bg">
-                <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
-                <div class="text-center" style="z-index: 999;">
-                    <div class="new">New Collection</div>
-                    <div class="br">Beautiful Rings</div>
-                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+            <div class="carousel-item">
+                <div class="row bg-white">
+                    <div class="col-6 ">
+                        <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+                    </div>
+                    <div class="col-6 bg">
+                        <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+                        <div class="text-center" style="z-index: 999;">
+                            <div class="new">New Collection</div>
+                            <div class="br">Beautiful Rings</div>
+                            <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row bg-white">
+                    <div class="col-6 ">
+                        <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+                    </div>
+                    <div class="col-6 bg">
+                        <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
+                        <div class="text-center" style="z-index: 999;">
+                            <div class="new">New Collection</div>
+                            <div class="br">Beautiful Rings</div>
+                            <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row bg-white">
-            <div class="col-6 ">
-                <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
-            </div>
-            <div class="col-6 bg">
-                <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
-                <div class="text-center" style="z-index: 999;">
-                    <div class="new">New Collection</div>
-                    <div class="br">Beautiful Rings</div>
-                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row bg-white">
-            <div class="col-6 ">
-                <img class="ring_img" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
-            </div>
-            <div class="col-6 bg">
-                <img class="ring_img ring_op" src="{% static 'app/images/Radhya/ring.svg' %}" alt="">
-                <div class="text-center" style="z-index: 999;">
-                    <div class="new">New Collection</div>
-                    <div class="br">Beautiful Rings</div>
-                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
-                </div>
-            </div>
-        </div>
-      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-</div>
+</section>
 
 
 <div class="container" style="background-color: #FFF8F8;">
@@ -79,14 +83,15 @@
         <div class="arrival">New Arrival</div>
         <img src="{%static '/app/images/Radhya/d1.svg' %}" style="margin-top: -7%;" alt="">
     </div>
-    <div id="tabs3">
-        <li class="t3_item">All</li>
+    <ul id="tabs3" class="tabs3">
+        <li class="t3_item active">All</li>
         {% for cat in categories %}
-            <li class="t3_item">{{ cat.name }}</li>
+        <li class="t3_item">{{ cat.name }}</li>
         {% endfor %}
-    </div>
-    <div class="owl-carousel owl-theme" id='product-list'>
-        {% for product in products %}
+    </ul>
+    <div>
+        <div class="owl-carousel owl-theme" id='product-list'>
+            {% for product in products %}
             <div class="item cr_content">
                 <img class="cr_img hov1" src="{{ product.get_primary_image }}" alt="" width='100%'>
                 <div class="hover_part1 text-center">
@@ -94,7 +99,8 @@
                     <button class="sh_n mt-5 mb-5">Shop Now</button>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 <div class="container">
@@ -120,7 +126,9 @@
             <div class="engg_t mt-2">Ring</div>
             <div class="engg_d mt-3">Pellentesque cras nunc ipsum hendrerit varius. Ullamcorper sed enim enim interdum
                 pulvinar magna. Orci feugiat tellus eleifend enim magna morbi tincidunt etiam turpis..</div>
-            <a href="#"><div class="sn1 mt-3">Shop Now <i class="fa fa-arrow-right" aria-hidden="true"></i></div></a>
+            <a href="#">
+                <div class="sn1 mt-3">Shop Now <i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+            </a>
         </div>
     </div>
 </div>
@@ -130,48 +138,55 @@
         <img src="{%static '/app/images/Radhya/d1.svg' %}" style="margin-top: -7%;" alt="">
         <div class="row">
             <div class="col-sm-3" style="position: relative;">
-                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Ring.svg' %}" alt="">
+                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Ring.svg' %}"
+                    alt="">
                 <div class="text-center hover_part11">
                     <div class="hov_title">RING</div>
                 </div>
             </div>
             <div class="col-sm-3" style="position: relative;">
-                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Earring.svg' %}" alt="">
+                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Earring.svg' %}"
+                    alt="">
                 <div class="text-center hover_part11">
                     <div class="hov_title">EARRINGS</div>
                 </div>
 
             </div>
             <div class="col-sm-3" style="position: relative;">
-                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Braclets.svg' %}" alt="">
+                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Braclets.svg' %}"
+                    alt="">
                 <div class="text-center hover_part11">
                     <div class="hov_title">BRACELETS</div>
                 </div>
 
             </div>
             <div class="col-sm-3" style="position: relative;">
-                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Necklace.svg' %}" alt="">
+                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Necklace.svg' %}"
+                    alt="">
                 <div class="text-center hover_part11">
-                    <div class="hov_title">NACKLACE</div> 
+                    <div class="hov_title">NACKLACE</div>
                 </div>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-sm-3" style="position: relative;">
-                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Bangles.svg' %}" alt="">
+                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Bangles.svg' %}"
+                    alt="">
                 <div class="text-center hover_part11">
                     <div class="hov_title">BANGLES</div>
                 </div>
             </div>
             <div class="col-sm-3" style="position: relative;">
-                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Nosepin.svg' %}" alt="">
+                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Nosepin.svg' %}"
+                    alt="">
                 <div class="text-center hover_part11">
                     <div class="hov_title">NOSE PIN</div>
                 </div>
 
             </div>
             <div class="col-sm-3" style="position: relative;">
-                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Pendant.svg' %}" alt="">
+                <img class="hov11" style="width: -webkit-fill-available;;" src="{% static 'app/images/Pendant.svg' %}"
+                    alt="">
                 <div class="text-center hover_part11">
                     <div class="hov_title">PENDANT </div>
                 </div>
@@ -206,13 +221,13 @@
         <div class="arrival">Shop</div>
         <img src="{%static '/app/images/Radhya/d1.svg' %}" style="margin-top: -7%;" alt="">
     </div>
-    <div id="tabs31">
+    <ul id="tabs31" class="tabs31">
         <li class="t3_item1 active">All</li>
         <li class="t3_item1">Ring</li>
         <li class="t3_item1">Earrings</li>
         <li class="t3_item1">Bracelets</li>
         <li class="t3_item1">Necklace</li>
-    </div>
+    </ul>
     <div class="row mt-5">
         <div class="col-sm-3">
             <img class="cr_img" src="{% static 'app/images/Radhya/ring1.svg' %}" alt="">
@@ -290,37 +305,18 @@
         hamburger.classList.toggle("active");
         tab.classList.toggle('active');
     }
-    var tabs3 = document.getElementById('tabs3')
-    var btns = tabs3.getElementsByClassName("t3_item");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace("active", "");
-            this.className += " active";
-        });
-    }
-
-    // var tabs31 = document.getElementById('tabs31')
-    // var btns1 = tabs31.getElementsByClassName("t3_item1");
-    // for (var i = 0; i < btns1.length; i++) {
-    //     btns1[i].addEventListener("click", function() {
-    //         var current = document.getElementsByClassName("active");
-    //         current[0].className = current[0].className.replace(" active", "");
-    //         this.className += " active";
-    //     });
-    // }
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
 <script>
-    $('#tabs3').on('click', '.t3_item', function(e) {
+    $('#tabs3').on('click', '.t3_item', function (e) {
         // get the value of the clicked button
         e.preventDefault();
         var category = $(this).text();
         console.log(category);
         var url = ""
-        if(category === "All"){
+        if (category === "All") {
             url = '/shop/api/count/3'
         } else {
             url = '/shop/api/count/3/' + category
@@ -330,17 +326,19 @@
             .then(data => {
                 // console.log(data);
                 var html = '';
-                data.forEach(function(p) {
+                data.forEach(function (p) {
                     fields = p['fields'];
                     html += `
-                    <div class="col-sm-4 cr_content">
-                        <a href="/product/${p.pk}">
-                            <img class="cr_img hov1" src="${ fields.img_url }" alt="" width='100%'>
-                            <div class="hover_part1 text-center">
-                                <div class="cr_t">${ fields.name}</div>
-                                <button class="sh_n mt-5 mb-5">Shop Now</button>
-                            </div>
-                        </a>
+                    <div class="owl-item">
+                        <div class="item cr_content">
+                            <a href="/product/${p.pk}">
+                                <img class="cr_img hov1" src="${fields.img_url}" alt="" width='100%'>
+                                <div class="hover_part1 text-center">
+                                    <div class="cr_t">${fields.name}</div>
+                                    <button class="sh_n mt-5 mb-5">Shop Now</button>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                     `;
                 });
@@ -352,25 +350,45 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
     $('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    items:4,
-    autoplay:true,
-    autoplayTimeout:2000,
-    autoplayHoverPause:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:5
+        loop: true,
+        margin: 10,
+        nav: true,
+        items: 4,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
         }
-    }
-    
-})
+
+    });
+
+    $(document).ready(function () {
+
+        $('ul.tabs31 > li')
+            .click(function (e) {
+                $('ul.tabs31 > li')
+                    .removeClass('active');
+                $(this).addClass('active');
+            });
+    });
+
+    $(document).ready(function () {
+
+        $('ul.tabs3 > li')
+            .click(function (e) {
+                $('ul.tabs3 > li')
+                    .removeClass('active');
+                $(this).addClass('active');
+            });
+    });
 </script>
 {% endblock js %}

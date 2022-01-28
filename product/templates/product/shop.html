@@ -10,59 +10,59 @@
 {% block content %}
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="row bg-white">
-            <div class="col-6 ">
-                <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
-            </div>
-            <div class="col-6 bg">
-                <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
-                <div class="text-center" style="z-index: 999;">
-                    <div class="new">New Collection</div>
-                    <div class="br">Beautiful Rings</div>
-                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+        <div class="carousel-item active">
+            <div class="row bg-white">
+                <div class="col-6 ">
+                    <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                </div>
+                <div class="col-6 bg">
+                    <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                    <div class="text-center" style="z-index: 999;">
+                        <div class="new">New Collection</div>
+                        <div class="br">Beautiful Rings</div>
+                        <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row bg-white">
-            <div class="col-6 ">
-                <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
-            </div>
-            <div class="col-6 bg">
-                <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
-                <div class="text-center" style="z-index: 999;">
-                    <div class="new">New Collection</div>
-                    <div class="br">Beautiful Rings</div>
-                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+        <div class="carousel-item">
+            <div class="row bg-white">
+                <div class="col-6 ">
+                    <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                </div>
+                <div class="col-6 bg">
+                    <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                    <div class="text-center" style="z-index: 999;">
+                        <div class="new">New Collection</div>
+                        <div class="br">Beautiful Rings</div>
+                        <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row bg-white">
-            <div class="col-6 ">
-                <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
-            </div>
-            <div class="col-6 bg">
-                <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
-                <div class="text-center" style="z-index: 999;">
-                    <div class="new">New Collection</div>
-                    <div class="br">Beautiful Rings</div>
-                    <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+        <div class="carousel-item">
+            <div class="row bg-white">
+                <div class="col-6 ">
+                    <img class="ring_img" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                </div>
+                <div class="col-6 bg">
+                    <img class="ring_img ring_op" src="{% static 'app/images/bg/Group34.png' %}" alt="">
+                    <div class="text-center" style="z-index: 999;">
+                        <div class="new">New Collection</div>
+                        <div class="br">Beautiful Rings</div>
+                        <a href="{% url 'shop' %}"><button class="sn">Shop Now</button></a>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="">Next</span>
     </button>
 </div>
 <div class="container">
@@ -74,22 +74,22 @@
         <div class="spec"> Showing 100 results for rings</div>
         <div><img style="width: 50px; height: 50px;" src="{% static '/app/images/Radhya/Filter.png' %}" alt=""></div>
     </div>
-    <div id="tabs31">
-        <li class="t3_item1" id='all'>All</li>
+    <ul id="tabs31" class="tabs31">
+        <li class="t3_item1 active" id='all'>All</li>
         {% for category in categories %}
-            <li class="t3_item1">{{ category.name }}</li>
+        <li class="t3_item1">{{ category.name }}</li>
         {% endfor %}
-    </div>
+    </ul>
     <div class="row mt-5" id='product-list'>
         {% for product in products %}
-            <div class="col-sm-3">
-                <a href="{% url 'single_product' pk=product.id %}">
-                    <img class="cr_img" src="{{ product.get_primary_image }}" alt="" width='100%'>
-                    <div class="p_s">{{ product.category.name }}</div>
-                    <div class="p_name">{{ product.name }}</div>
-                    <div class="p_prices"><span>Rs. {{ product.price }}</span></div>
-                </a>
-            </div>
+        <div class="col-sm-3">
+            <a href="{% url 'single_product' pk=product.id %}">
+                <img class="cr_img" src="{{ product.get_primary_image }}" alt="" width='100%'>
+                <div class="p_s">{{ product.category.name }}</div>
+                <div class="p_name">{{ product.name }}</div>
+                <div class="p_prices"><span>Rs. {{ product.price }}</span></div>
+            </a>
+        </div>
         {% endfor %}
     </div>
 </div>
@@ -116,28 +116,19 @@
         navMenu.classList.toggle("active");
         tab.classList.toggle('active');
     }
-    var tabs31 = document.getElementById('tabs31');
-    var btns1 = tabs31.getElementsByClassName("t3_item1");
-    for (var i = 0; i < btns1.length; i++) {
-        btns1[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
 <script>
-    $('#tabs31').on('click', '.t3_item1', function(e) {
+    $('#tabs31').on('click', '.t3_item1', function (e) {
         // get the value of the clicked button
         e.preventDefault();
         var category = $(this).text();
         // console.log(category);
         var url = '/shop/api/'
-        if(category === "All"){
+        if (category === "All") {
             url = '/shop/api/'
         } else {
             url = '/shop/api/' + category
@@ -147,21 +138,30 @@
             .then(data => {
                 // console.log(data);
                 var html = '';
-                data.forEach(function(p) {
+                data.forEach(function (p) {
                     fields = p['fields'];
                     html += `
                     <div class="col-sm-3">
-                        <a href="/product/${ p.pk }"> 
-                            <img class="cr_img" src="${ fields.img_url }" alt="" width='100%'>
-                            <div class="p_s">${ fields.category.name }</div>
-                            <div class="p_name">${ fields.name }</div>
-                            <div class="p_prices"><span>Rs. ${ fields.price }</span></div>
-                        </a>
-                    </div>
-                    `;
-                });
-                $('#product-list').empty();
-                $('#product-list').html(html);
+                        <a href="/product/${p.pk}"> 
+                            <img class="cr_img" src="${fields.img_url}" alt="" width='100%'>
+                            <div class="p_s">${fields.category.name}</div>
+                            <div class="p_name">${fields.name}</div>
+                            <div class="p_prices"><span>Rs. ${fields.price}</span></div>
+                            </a>
+                            </div>
+                            `;
+                        });
+                        $('#product-list').empty();
+                        $('#product-list').html(html);
+                    });
+    });
+    $(document).ready(function () {
+
+        $('ul.tabs31 > li')
+            .click(function (e) {
+                $('ul.tabs31 > li')
+                    .removeClass('active');
+                $(this).addClass('active');
             });
     });
 </script>
