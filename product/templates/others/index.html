@@ -90,19 +90,21 @@
         {% endfor %}
     </ul>
     <div>
-        <div class="owl-carousel owl-theme" id='product-list'>
-            {% for product in products %}
-            <div class="item cr_content">
-                <a href="/product/{{ product.id }}">
-                <img class="cr_img hov1" src="{{ product.get_primary_image }}" alt="" width='100%'>
-                <div class="hover_part1 text-center">
+        <div id='product-list'>
+            <div class="owl-carousel owl-theme">
+                {% for product in products %}
+                <div class="item cr_content">
+                    <a href="/product/{{ product.id }}">
+                    <img class="cr_img hov1" src="{{ product.get_primary_image }}" alt="" width='100%'>
+                    <div class="hover_part1 text-center">
 
-                    <div class="cr_t">{{ product.name }}</div>
-                    <button class="sh_n mt-5 mb-5">Shop Now</button>
+                        <div class="cr_t">{{ product.name }}</div>
+                        <button class="sh_n mt-5 mb-5">Shop Now</button>
+                    </div>
+                    </a>
                 </div>
-                </a>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>
@@ -344,54 +346,59 @@
             .then(response => response.json())
             .then(data => {
                 // console.log(data);
-                var html = '';
+                var html = '<div class="owl-carousel owl-theme">';
                 data.forEach(function (p) {
                     fields = p['fields'];
+                    //<div class="owl-item">
                     html += `
-                    <div class="owl-item">
-                        <div class="item cr_content">
-                            <a href="/product/${p.pk}">
-                                <img class="cr_img hov1" src="${fields.img_url}" alt="" width='100%'>
-                                <div class="hover_part1 text-center">
-                                    <div class="cr_t">${fields.name}</div>
-                                    <button class="sh_n mt-5 mb-5">Shop Now</button>
-                                </div>
-                            </a>
+                    <div class="item cr_content">
+                        <a href="/product/${p.pk}">
+                        <img class="cr_img hov1" src="${fields.img_url}" alt="" width='100%'>
+                        <div class="hover_part1 text-center">
+        
+                            <div class="cr_t">${fields.name}</div>
+                            <button class="sh_n mt-5 mb-5">Shop Now</button>
                         </div>
+                        </a>
                     </div>
                     `;
+                    //</div>
                 });
+                html += '</div>';
                 $('#product-list').empty();
                 $('#product-list').html(html);
+                callCarousel();
             });
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        items: 4,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 5
+    function callCarousel(){
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            items: 4,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
             }
-        }
-
-    });
+    
+        });
+    }
 
     $(document).ready(function () {
-
+        callCarousel();
         $('ul.tabs31 > li')
             .click(function (e) {
                 $('ul.tabs31 > li')
