@@ -16,7 +16,7 @@ def login_page(request):
             user=authenticate(request,email=email,password=password)
             if user is not None:
                 login(request,user)
-                return redirect('home')
+                return redirect('/')
             else:
                 messages.error(request, 'Invalid Credentials')
                 return redirect('login')
@@ -25,7 +25,7 @@ def login_page(request):
             return redirect('login')
            
     else:
-        return render(request, 'userform/login.html')
+        return render(request, 'user_manager/login.html')
 
 def logout_page(request):
     logout(request)
@@ -75,8 +75,4 @@ def signup_page(request):
             messages.error(request, 'Invalid signup2')
             return redirect('signup')
     else:
-        return render(request,"userform/signup.html")
-
-
-
-
+        return render(request,"user_manager/signup.html")

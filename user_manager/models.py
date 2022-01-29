@@ -40,6 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(max_length=10, blank=True, null=True)
     profile_pic = models.ImageField(
         upload_to='profile_pics/%Y/%m/%d', default='default/images/profile_pic.png')
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     objects = UserProfileManager()
 

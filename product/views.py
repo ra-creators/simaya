@@ -11,7 +11,7 @@ from .models import Category, Product, Collection
 def index(request):
     context = {}
     categories = Category.objects.all()
-    products = Product.objects.all()[:3]
+    products = Product.objects.all()[:10]
     context['categories'] = categories
     context['products'] = products
     return render(request,"others/index.html", context=context)
@@ -19,7 +19,7 @@ def index(request):
 def shop(request):
     context = {}
     categories = Category.objects.all()
-    products = Product.objects.all()[:3]
+    products = Product.objects.all()
     context['categories'] = categories
     context['products'] = products
     return render(request,"product/shop.html", context=context)

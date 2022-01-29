@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'user_manager',
     'cart',
     'orders',
+    'blog',
         
     'allauth',
     'allauth.account',

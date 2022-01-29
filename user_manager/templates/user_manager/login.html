@@ -2,11 +2,10 @@
 {% load static %}
 {% load socialaccount %}
 {% block link %}
-    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
-
-
+    <link rel="stylesheet" href="{% static '/css/style1.css' %}">
 {% endblock link %}
 {% block main-container %}
+<div class="bg">
     <div class="container">  
         <h1>RADHYA JEWELS</h1>
     </div>
@@ -28,25 +27,22 @@
             
             <input type="password" placeholder="Enter your password" name="password" id="password" required>
 
-            
+            <a href="{% url 'password_reset' %}">Forget Password</a>
             <button type="submit" class="continue">Continue</button>
             <hr>
         </form>
         <p class="or"> or </p>
-        <form action="" method='POST'>
+        <form action="{% provider_login_url 'google' %}" method='post'>
             {% csrf_token %}
-            <button type="submit" id="signup-google" class="signup-google" ><i class="fa fa-google"></i>
+            <button type="submit" id="signup-google" class="signup-google" ><i class="fab fa-google"></i>
                 Continue with Google</button>
         </form>
-        <form action="" method='POST'>
+        <form action="" method='post'>
             {% csrf_token %}
-            <button type="submit" id="signup-facebook" class="signup-facebook"><i class="fa fa-facebook-f"></i> 
+            <button type="submit" id="signup-facebook" class="signup-facebook"><i class="fab fa-facebook-f"></i> 
                 Continue with Facebook</button>
         </form>
-        <small><a href="{% url 'password_reset'%}">Forgot Password ?</a></small> <br>
-    
-        <button type="button" id="signup-apple" class="signup-apple"> <i class="fa fa-apple"></i> Continue with Apple</button>
-
-       
+        <button type="button" id="signup-apple" class="signup-apple"> <i class="fa fa-apple"></i> Continue with Apple</button>  
     </div>
+</div>
 {% endblock main-container %}
