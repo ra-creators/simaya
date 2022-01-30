@@ -14,18 +14,21 @@ let updatePrice = () => {
     .then(body => {
         // console.log(body);
         total = body;
-        let totalEle = document.getElementById('total-price');
-        totalEle.innerHTML = `Total ${total}`;
-        totalEle = document.getElementById('cart-total');
+        let totalEle = document.getElementById('cart-total');
         totalEle.innerHTML = `${total}`;
         totalEle = document.getElementById('total-after-discount');
         totalEle.innerHTML = `${total}`;
+        totalEle = document.getElementById('total-price');
+        // console.log(totalEle)
+        if( totalEle != null){
+            totalEle.innerHTML = `Total ${total}`;
+        }
     });    
 }
 
 
 let removeItemId = (id) => {
-    // console.log("CLICKED");
+    console.log("CLICKED");
     fetch('/cart/remove/' + id + '/', {
         method: 'POST',
     })

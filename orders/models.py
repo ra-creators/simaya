@@ -61,6 +61,9 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product,
                                 related_name='order_items',
                                 on_delete=models.CASCADE)
+    size = models.CharField(max_length=5)
+    metal = models.CharField(max_length=10)
+    diamond = models.CharField(max_length=10)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
 

@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('create/', views.OrderCreate.as_view(), name='order_create'),
+    path('success/', views.success, name='success'),
 ]

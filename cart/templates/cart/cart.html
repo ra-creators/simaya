@@ -98,7 +98,11 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-5">
-                        <button class="p_order">PLACE ORDER</button>
+                        {% if request.user.is_authenticated %}
+                        <button class="p_order" onclick="location.href='{% url 'order_create' %}';">PLACE ORDER</button>
+                        {% else %}
+                        <button class="p_order" onclick="location.href='{% url 'login' %}';">PLACE ORDER</button>
+                        {% endif %}
                     </div>
                     <div class="mt-5">
                         <img style="float: left;" src="{% static 'app/images/Radhya/security.svg' %}" alt="">

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'blog',
+    'razor_pay',
         
     'allauth',
     'allauth.account',

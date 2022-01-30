@@ -77,3 +77,8 @@ class Cart(object):
                 self.save()
             return True
         return False
+    
+    def clear(self):
+        # Clear session
+        del self.session[settings.CART_SESSION_ID]
+        
