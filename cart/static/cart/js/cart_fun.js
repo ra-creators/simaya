@@ -15,13 +15,13 @@ let updatePrice = () => {
         // console.log(body);
         total = body;
         let totalEle = document.getElementById('cart-total');
-        totalEle.innerHTML = `${total}`;
+        totalEle.innerHTML = `${total}`+".00";
         totalEle = document.getElementById('total-after-discount');
-        totalEle.innerHTML = `${total}`;
+        totalEle.innerHTML = `${total}`+".00";
         totalEle = document.getElementById('total-price');
         // console.log(totalEle)
         if( totalEle != null){
-            totalEle.innerHTML = `Total ${total}`;
+            totalEle.innerHTML = `Total ${total}`+".00";
         }
     });    
 }

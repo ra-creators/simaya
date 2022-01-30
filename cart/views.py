@@ -12,7 +12,7 @@ from .helpers import *
 def cart(request):
     cart = Cart(request)
     #total
-    cart.print_cart()
+    # cart.print_cart()
     return render(request, 'cart/cart.html', {'cart': cart})
 
 @require_POST
@@ -20,9 +20,6 @@ def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     form_data = request.POST.copy()
-    if 'buy_now' in form_data:
-        # Redirect to Buy Now
-        pass
     size = form_data.get('sizes')
     metal = form_data.get('metal')
     diamond = form_data.get('diamond')
@@ -33,6 +30,10 @@ def cart_add(request, product_id):
                  size=size,
                  metal=metal, 
                  diamond=diamond)
+    if 'buy_now' in form_data:
+        # Redirect to Buy Now
+        return redirect('order_create')
+    
     # print(request.POST)
     # print(product)
     return redirect('cart')
@@ -71,7 +72,7 @@ def cart_increase(request, product_id):
 @require_POST
 def cart_decrease(request, product_id):
     cart = Cart(request)
-    print(product_id)
+    # print(product_id)
     product_id = str(product_id)
     is_ok = cart.decrease_count(product_id)
     # cart.print_cart()

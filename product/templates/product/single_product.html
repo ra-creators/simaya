@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Poppins:wght@200&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="{% static 'product/css/styles.css' %}">
-
 {% endblock css %}
 
 {% block title %}
@@ -100,6 +99,7 @@ Product
                     <input type="submit" name='add_to_cart' class='add-to-cart' value="Add to cart">
                     {% comment %} <button class="buy-now"><nobr>Buy Now</nobr></button> {% endcomment %}
                     <input type="submit" name='buy_now' class="buy-now" value="Buy Now">
+                    
                 </div>
             </form>
         </div>
@@ -133,12 +133,7 @@ Product
     </div>
 {% endblock %}
 {% block js %}
-{% comment %} <script>
-    window.addEventListener("DOMContentLoaded", (event) => {
-        cart = new Cart();
-    });
-</script> {% endcomment %}
-    {% comment %} <script src="{% static 'cart/js/cart.js' %}" async></script> {% endcomment %}
+
     <script src="https://kit.fontawesome.com/9dddb02c5f.js" crossorigin="anonymous"></script>
     <script>
         const staticImages = document.querySelectorAll(".static-img");
@@ -148,5 +143,7 @@ Product
                 mainImage.src = element.getAttribute("src");
             })
         });
+
+
     </script>
 {% endblock js %}    
