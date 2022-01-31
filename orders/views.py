@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from cart.cart import Cart
+from coupons.models import Coupon
 from .models import Order, OrderItem
 from product.models import Product
 from razor_pay.models import RazorPayOrder
@@ -19,6 +20,9 @@ class OrderCreate(View, LoginRequiredMixin):
         context = {}
         context['cart'] = cart
         context['address'] = address
+        if request.session.get('coupon_id'):
+            context["discount"] = Coupon.objects.get(id=request.session['coupon_id']).discount
+            context['discount_price'] = cart.get_total_price_after_discount()
         return render(request, 'orders/confirmation.html', context=context)
     
     def post(self, request):
@@ -79,7 +83,7 @@ def create_order(request, address_id):
                 size=item['size'],
                 metal=item['metal'],
                 diamond=item['diamond'],
-                price=int(item['price']),
+                price=int(float(item['price'])),
                 quantity=int(item['quantity']),
             )
     except Exception as e:
@@ -91,6 +95,8 @@ def create_order(request, address_id):
     try:
         order_data = {}
         order_data['amount'] = str(cart.get_total_price() * 100)
+        if request.session.get('coupon_id'):
+            order_data['amount'] = str(cart.get_total_price_after_discount() * 100)
         order_data['currency'] = 'INR'
 
         razorpay_order = razorpay_client.order.create(data=order_data)

@@ -30,6 +30,8 @@ def rp_callback(request):
         )
         order.paid = True
         order.save()
+        if request.session.get('coupon_id'):
+            del request.session['coupon_id']
         return redirect('success')
     except:
         return HttpResponse('error occured')

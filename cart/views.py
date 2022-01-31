@@ -5,15 +5,19 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from product.models import Product
 from .cart import Cart
+from coupons.models import Coupon
 from .helpers import *
 # from .forms import CartAddProductForm
 
 # Create your views here.
 def cart(request):
     cart = Cart(request)
-    #total
+    discount = None
+    if request.session.get('coupon_id'):
+        discount = Coupon.objects.get(id=request.session['coupon_id']).discount
+    # print(request.session.get('coupon_id'))
     # cart.print_cart()
-    return render(request, 'cart/cart.html', {'cart': cart})
+    return render(request, 'cart/cart.html', {'cart': cart, 'discount': discount})
 
 @require_POST
 def cart_add(request, product_id):
@@ -49,7 +53,10 @@ def cart_remove(request, product_id):
 def get_total_price(request):
     cart = Cart(request)
     total = cart.get_total_price()
-    content = json.dumps({'total': str(total)})
+    discount_price = 0
+    if request.session.get('coupon_id'):
+        discount_price = cart.get_total_price_after_discount()
+    content = json.dumps({'total': str(total), 'discount_price': str(discount_price)})
     return HttpResponse(content, content_type='application/json')
 
 

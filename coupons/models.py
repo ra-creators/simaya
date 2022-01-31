@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from django.db import models
 import datetime
 # Create your models here.
@@ -12,12 +13,6 @@ class Coupon(models.Model):
     def __str__(self):
         return self.code
     
-    @property
-    def is_valid(self):
-        if self.valid_from < datetime.datetime.now() < self.valid_to:
-            return True
-        return False
-
     @property
     def is_percentage(self):
         return self.percentage
