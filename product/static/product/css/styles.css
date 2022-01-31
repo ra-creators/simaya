@@ -5,7 +5,7 @@ body {
 
 /* Hero component */
 .about-us-hero {
-  background: url("/app/images/bg/Rectangle.png");
+  background: url("static/app/images/bg/Rectangle.png");
   background-size: auto;
   height: 494px;
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .ar_bg {
-  background-image: url("/app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink\ 8.png");
+  background-image: url("static/app/images/bg/depositphotos_318254452-stock-photo-a-bouquet-of-beautiful-pink\ 8.png");
   height: 100px;
   background-position: center;
   display: flex;
@@ -1969,6 +1969,7 @@ td {
 }
 
 #findMyRing {
+  background-image: url(/static/app/images/bg/findMyRingSize.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ffffff;
