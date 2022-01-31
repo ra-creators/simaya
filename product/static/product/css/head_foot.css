@@ -122,6 +122,15 @@ li{
     transition: all 0.3s ease-in-out;
     background-color: #ffffff;
   }
+  .arrival{
+    font-family: Playfair Display SC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: 0.03em;
+    color: #D23636;
+}
 @media screen and (max-width : 576px){
     .tabs2{
         display: none;
