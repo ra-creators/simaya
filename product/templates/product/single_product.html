@@ -7,7 +7,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Poppins:wght@200&display=swap"
+    rel="stylesheet">
 <link rel="stylesheet" href="{% static 'product/css/styles.css' %}">
 {% endblock css %}
 
@@ -16,70 +17,225 @@ Product
 {% endblock title %}
 
 {% block content %}
-    <div class="text-center mt-5">
-        <div class="arrival">PRODUCT</div>
-        <img src="{%static '/app/images/Radhya/d1.svg' %}" style="margin-top: -7%;" alt="">
-    </div>
-    <div class="product-view">
-        <div class="images">
-            <div class="main-img">
-                <img id="main-image" class="responsive" src="{{ product.get_primary_image }}" alt="">
-            </div>
-            <div class="other-images">
-                {% for img in product.images.all %}
-                    <img class="static-img" src="{{ img.image.url }}" alt="">
-                {% endfor %}
-            </div>
+<div class="text-center mt-5">
+    <div class="arrival">PRODUCT</div>
+    <img src="{%static '/app/images/Radhya/d1.svg' %}" style="margin-top: -7%;" alt="">
+</div>
+<div class="product-view">
+    <div class="images">
+        <div class="main-img">
+            <img id="main-image" class="responsive" src="{{ product.get_primary_image }}" alt="">
         </div>
-        <div class="fields">
-            <h1>{{ Product.name }}
-            </h1>
-            <div class="product-rating">
-                <div class="stars">
-                    <i class="fas fa-star active"></i>
-                    <i class="fas fa-star active"></i>
-                    <i class="fas fa-star active"></i>
-                    <i class="fas fa-star active"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <P class="no-of-reviews">20 Reviews</P>
+        <div class="other-images">
+            {% for img in product.images.all %}
+            <img class="static-img" src="{{ img.image.url }}" alt="">
+            {% endfor %}
+        </div>
+    </div>
+    <div class="fields">
+        <h1>{{ Product.name }}
+        </h1>
+        <div class="product-rating">
+            <div class="stars">
+                <i class="fas fa-star active"></i>
+                <i class="fas fa-star active"></i>
+                <i class="fas fa-star active"></i>
+                <i class="fas fa-star active"></i>
+                <i class="fas fa-star"></i>
             </div>
-            <form action="{% url 'cart_add' product.id %}" method='post'>
-                {% csrf_token %}
-                <div class="product-form">
-                    <div class="product-form-field">
-                        <label for="size">Select Size</label>
-                        <a class="link-product" href=""><nobr>Don’t know your ring size?</nobr></a>
-                        <br>
-                        <select id="sizes" name='sizes' class="product-form-select">
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                        </select>
+            <P class="no-of-reviews">20 Reviews</P>
+        </div>
+        <form action="{% url 'cart_add' product.id %}" method='post'>
+            {% csrf_token %}
+            <div class="product-form">
+                <div class="product-form-field">
+                    <label for="size">Select Size</label>
+                    <span class="link-product">
+                        <nobr onclick="checkSize()" style="cursor: pointer;">Don’t know your ring size?</nobr>
+                    </span>
+                    <br>
+                    <select id="sizes" name='sizes' class="product-form-select">
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+                <div class="product-form-field">
+                    <label for="metals">Metal</label>
+                    <br>
+                    <select id="metals" name='metal' class="product-form-select">
+                        <option value="gold">GOLD</option>
+                        <option value="silver">SILVER</option>
+                        <option value="bronze">BRONZE</option>
+                        <option value="platinum">PLATINUM</option>
+                    </select>
+                </div>
+                <div class="product-form-field">
+                    <label for="diamond">Diamond</label>
+                    <span class="link-product" onclick="showGuide()" style="cursor: pointer;">Diamond Guide</span>
+                    <br>
+                    <select id="diamond" name='diamond' class="product-form-select">
+                        <option value="ij-si">IJ-SI</option>
+                        <option value="13">filler</option>
+                        <option value="14">filler</option>
+                        <option value="15">filler</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bestseller">
+                Bestseller
+            </div>
+            <div class="price">
+                <div class="keep">Rs. {{ product.price }}</div>
+                {% comment %} <div class="cut">Rs.40000</div> {% endcomment %}
+            </div>
+            {% comment %} <div class="flat">Flat 10% on MRP</div> {% endcomment %}
+            <div class="cart-buttons">
+                {% comment %} <button class="add-to-cart"> {% endcomment %}
+                    {% comment %} onClick='addToCart("{{ product.id }}", "{{ product.name }}",
+                    "{{ product.price }}",
+                    "{{ product.stocks }}",
+                    "{{ product.get_primary_image }}")'>
+                    {% endcomment %}
+                    {% comment %} <nobr>Add to Cart</nobr></button> {% endcomment %}
+                <input type="submit" name='add_to_cart' class='add-to-cart' value="Add to cart">
+                {% comment %} <button class="buy-now">
+                    <nobr>Buy Now</nobr>
+                </button> {% endcomment %}
+                <input type="submit" name='buy_now' class="buy-now" value="Buy Now">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="product-detail">
+    <h2 class="product-detail-heading">Product Details</h2>
+    <ul class="product-desc">
+        <li>width - 6 mm</li>
+        <li>height - 5.6 mm</li>
+        <li>purity - 14kt</li>
+        <li>weight - 1.99 g</li>
+        <li>size - 12</li>
+    </ul>
+</div>
+<div class="diamond-detail">
+    <h2 class="product-detail-heading">Diamond Details</h2>
+    <table>
+        <tr>
+            <th>DIAMOND TYPE</th>
+            <th>SETTING TYPE</th>
+            <th>TOTAL NUMBER</th>
+            <th>TOTAL WEIGHT</th>
+        </tr>
+        <tr>
+            <td>IJ-SI</td>
+            <td>Prong</td>
+            <td>19</td>
+            <td>0.092 ct</td>
+        </tr>
+    </table>
+</div>
+<div id="findMyRing" >
+    <div style="position:absolute; width: 10%; margin-left: 90%;">
+        <div class="cross" onclick="closeSize()">+</div>
+    </div>
+    <div class="text-center">
+        <img class="mt-5" src="{% static 'app/images/bg/findMyRing.png' %}" alt="">
+        <h2 class="mt-5">Find My Ring Size</h2>
+        <p class="mt-5">Order our Ring Sizer today and find your size. It’s free and super easy :)</p>
+        <button class="size mt-5">See My Size Online</button>
+        <p class="mt-5" style="color: #F78383;">Or Check out our Ring Size Guide</p>
+    </div>
+</div>
+<div id="guide">
+    <div>
+        <div style="position:absolute; width: 10%; margin-left: 90%;top: 0;">
+            <div class="cross" onclick="closeGuide()">+</div>
+        </div>
+        <div style="width: 90%;margin: auto;">
+            <div class="guide mt-5">Diamond Buying Guide</div>
+            <h3 class="text-start mt-5">Diamond Color</h3>
+            <p style="color: rgba(0, 0, 0, 0.58);">The Gemological Institute of America (GIA) has devised a set of
+                guidelines to grade diamond colour.The colour
+                of graded diamonds is compared to that of control stones, which are pre-selected gems of a specific
+                colour.
+            </p>
+            <div class="mb-5">
+                <img class="mt-5 guide_img" src="{% static 'app/images/bg/diamond_color.png' %}" alt="">
+                <div class="row color_row">
+                    <div class="col color_tag selected" id="D">
+                        <span class="circle"></span>
+                        D
                     </div>
-                    <div class="product-form-field">
-                        <label for="metals">Metal</label>
-                        <br>
-                        <select id="metals" name='metal' class="product-form-select">
-                            <option value="gold">GOLD</option>
-                            <option value="silver">SILVER</option>
-                            <option value="bronze">BRONZE</option>
-                            <option value="platinum">PLATINUM</option>
-                        </select>
+                    <div class="col color_tag" id="E">
+                        <span class="circle"></span>
+                        E
                     </div>
-                    <div class="product-form-field">
-                        <label for="diamond">Diamond</label>
-                        <a class="link-product" href="">Diamond Guide</a>
-                        <br>
-                        <select id="diamond" name='diamond' class="product-form-select">
-                            <option value="ij-si">IJ-SI</option>
-                            <option value="13">filler</option>
-                            <option value="14">filler</option>
-                            <option value="15">filler</option>
-                        </select>
+                    <div class="col color_tag" id="F">
+                        <span class="circle"></span>
+                        F
+                    </div>
+                    <div class="col color_tag" id="G-J">
+                        <span class="circle"></span>
+                        G-J
+                    </div>
+                    <div class="col color_tag" id="K-M">
+                        <span class="circle"></span>
+                        K-M
+                    </div>
+                    <div class="col color_tag" id="N-R">
+                        <span class="circle"></span>
+                        N-R
+                    </div>
+                    <div class="col color_tag" id="S-Z">
+                        <span class="circle"></span>
+                        S-Z
                     </div>
                 </div>
+            </div>
+            <div class="text-start"
+                style="width: 90%; margin: auto; background: rgba(196, 196, 196, 0.1); padding: 1%;font-size: 22px;">
+                <span style="color: #F78383;
+                " id="colorName">D</span> &nbsp; - &nbsp; <span id="colorChar">Colorless
+                </span>
+            </div>
+            <hr style="color: #000;">
+            <h3 class="text-start mt-5">Diamond Clarity</h3>
+            <p style="color: rgba(0, 0, 0, 0.58);">We measure the clarity of a diamond by its size and the number of
+                inclusions and blemishes in or on it. Inclusions are interior irregularities and blemishes are exterior
+                irregularities. These imperfections are not flaws, but rather the natural fingerprint of every diamond.
+                With
+                11 grades, the system classifies a diamond's clarity based on the nature, position and size of its
+                inclusions and exclusions. The list below summarizes the GIA's International Diamond Grading System.
+            </p>
+            <div class="mb-5">
+                <img class="mt-5 guide_img" src="{% static 'app/images/bg/diamond_clarity.png' %}" alt="">
+                <div class="row clarity_col">
+                    <div class="clarity_tag col-2 selected" id="FL">
+                        <span class="circle"></span>
+                        FL
+                    </div>
+                    <div class="clarity_tag col-2" id="IF">
+                        <span class="circle"></span>
+                        IF
+                    </div>
+                    <div class="clarity_tag col-2" id="VVS1/VVS2">
+                        <span class="circle"></span>
+                        VVS1/VVS2
+                    </div>
+                    <div class="clarity_tag col-2" id="VS1/VS2">
+                        <span class="circle"></span>
+                        VS1/VS2
+                    </div>
+                    <div class="clarity_tag col-2" id="S1/S2">
+                        <span class="circle"></span>
+                        S1/S2
+                    </div>
+                    <div class="clarity_tag col-2" id="I1/I2/I3">
+                        <span class="circle"></span>
+                        1/2/3
+                    </div>
+
                 <div class="bestseller">
                     Bestseller
                 </div>
@@ -99,51 +255,140 @@ Product
                     <input type="submit" name='add_to_cart' class='add-to-cart' value="Add to cart">
                     {% comment %} <button class="buy-now"><nobr>Buy Now</nobr></button> {% endcomment %}
                     <input type="submit" name='buy_now' class="buy-now" value="Buy Now">
-                    
+            
                 </div>
-            </form>
+            </div>
+            <div class="text-start mb-5"
+                style="width: 90%; margin: auto; background: rgba(196, 196, 196, 0.1); padding: 1%;font-size: 22px;">
+                <span style="color: #F78383;
+                " id="diamond_name">FL</span> &nbsp; - &nbsp; <span id="diamond_desc"><b>Flawless</b>,  diamonds have no inclusions or blemishes detectable under
+                    10x magnification, and are extremely rare.
+                </span>
+            </div>
         </div>
     </div>
-    <div class="product-detail">
-        <h2 class="product-detail-heading">Product Details</h2>
-        <ul class="product-desc">
-            <li>width - 6 mm</li>
-            <li>height - 5.6 mm</li>
-            <li>purity - 14kt</li>
-            <li>weight - 1.99 g</li>
-            <li>size - 12</li>
-        </ul>
-    </div>
-    <div class="diamond-detail">
-        <h2 class="product-detail-heading">Diamond Details</h2>
-        <table>
-            <tr>
-                <th>DIAMOND TYPE</th>
-                <th>SETTING TYPE</th>
-                <th>TOTAL NUMBER</th>
-                <th>TOTAL WEIGHT</th>
-            </tr>
-            <tr>
-                <td>IJ-SI</td>
-                <td>Prong</td>
-                <td>19</td>
-                <td>0.092 ct</td>
-            </tr>
-        </table>
-    </div>
+</div>
 {% endblock %}
 {% block js %}
 
-    <script src="https://kit.fontawesome.com/9dddb02c5f.js" crossorigin="anonymous"></script>
-    <script>
-        const staticImages = document.querySelectorAll(".static-img");
-        const mainImage = document.getElementById('main-image');
-        staticImages.forEach(element => {
-            element.addEventListener("click",()=>{
-                mainImage.src = element.getAttribute("src");
-            })
-        });
+{% comment %}
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+        cart = new Cart();
+    });
+</script> {% endcomment %}
+{% comment %}
+<script src="{% static 'cart/js/cart.js' %}" async></script> {% endcomment %}
+<script src="https://kit.fontawesome.com/9dddb02c5f.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script>
+    const staticImages = document.querySelectorAll(".static-img");
+    const mainImage = document.getElementById('main-image');
+    staticImages.forEach(element => {
+        element.addEventListener("click", () => {
+            mainImage.src = element.getAttribute("src");
+        })
+    });
 
+    const ringSize = document.getElementById('findMyRing');
 
-    </script>
-{% endblock js %}    
+    function checkSize() {
+        ringSize.style.display = "block";
+    }
+
+    function closeSize() {
+        ringSize.style.display = "none";
+    }
+
+    const guide = document.getElementById('guide');
+
+    function showGuide() {
+        guide.style.display = "block";
+    }
+
+    function closeGuide() {
+        guide.style.display = "none";
+    }
+
+    $(document).ready(function () {
+
+        $('div.clarity_col > div')
+            .click(function (e) {
+                $('div.clarity_col > div')
+                    .removeClass('selected');
+                $(this).addClass('selected');
+            });
+    });
+
+    $(document).ready(function () {
+
+        $('div.color_row > div')
+            .click(function (e) {
+                $('div.color_row > div')
+                    .removeClass('selected');
+                $(this).addClass('selected');
+            });
+    });
+</script>
+
+<script>
+    document.getElementById('D').onclick = function() {
+        document.getElementById('colorName').innerHTML = 'D';
+        document.getElementById('colorChar').innerHTML = "Colourless";
+    }
+    document.getElementById('E').onclick = function() {
+        document.getElementById('colorName').innerHTML = 'E';
+        document.getElementById('colorChar').innerHTML = "Colourless";
+    }
+    document.getElementById('F').onclick = function() {
+        document.getElementById('colorName').innerHTML = 'F';
+        document.getElementById('colorChar').innerHTML = "Colourless";
+    }
+    document.getElementById('G-J').onclick = function() {
+        document.getElementById('colorName').innerHTML = 'G-J';
+        document.getElementById('colorChar').innerHTML = "Near Colourless";
+    }
+    document.getElementById('K-M').onclick = function() {
+        document.getElementById('colorName').innerHTML = 'K-M';
+        document.getElementById('colorChar').innerHTML = "Faint";
+    }
+    document.getElementById('N-R').onclick = function() {
+        document.getElementById('colorName').innerHTML = 'N-R';
+        document.getElementById('colorChar').innerHTML = "Very Light";
+    }
+    document.getElementById('S-Z').onclick = function() {
+        document.getElementById('colorName').innerHTML = 'S-Z';
+        document.getElementById('colorChar').innerHTML = "Light";
+    }
+</script>
+
+<script>
+    document.getElementById('FL').onclick = function() {
+        document.getElementById('diamond_name').innerHTML = 'FL';
+        document.getElementById('diamond_desc').innerHTML = "<b>Flawless</b>, diamonds have no inclusions or blemishes detectable under 10x magnification, and are extremely rare.";
+    }
+    document.getElementById('IF').onclick = function() {
+        document.getElementById('diamond_name').innerHTML = 'IF';
+        document.getElementById('diamond_desc').innerHTML = "<b>Internally Flawless</b>, Internally Flawless diamonds have no inclusions and only blemishes are visible to a skilled grader using 10x magnification.";
+    }
+    document.getElementById('VVS1/VVS2').onclick = function() {
+        document.getElementById('diamond_name').innerHTML = 'VVS1/VVS2';
+        document.getElementById('diamond_desc').innerHTML = "<b>Very, Very Slightly Included Very</b>, Very Slightly Included diamonds have minute inclusions that range from extremely difficult to very difficult to see are visible to a skilled grader using 10x magnification.";
+    }
+    document.getElementById('VS1/VS2').onclick = function() {
+        document.getElementById('diamond_name').innerHTML = 'VS1/VS2';
+        document.getElementById('diamond_desc').innerHTML = "<b>Very Slightly Included</b>, Very Slightly Included diamonds have minor inclusions that range from difficult to somewhat easy to see are visible to a skilled grader using 10x magnification.";
+    }
+    document.getElementById('S1/S2').onclick = function() {
+        document.getElementById('diamond_name').innerHTML = 'S1/S2';
+        document.getElementById('diamond_desc').innerHTML = "<b>Slightly Included</b>, Slightly Included diamonds have noticeable inclusions that range from easy to very easy to see are visible to a skilled grader using 10x magnification.";
+    }
+    document.getElementById('I1/I2/I3').onclick = function() {
+        document.getElementById('diamond_name').innerHTML = 'I1/I2/I3';
+        document.getElementById('diamond_desc').innerHTML = " <b>Included</b>, Included diamonds have obvious inclusions that are visible to a skilled grader using 10x magnification and may affect transparency and brilliance.";
+    }
+</script>
+{% endblock js %}
+

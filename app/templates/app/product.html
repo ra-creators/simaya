@@ -1,11 +1,11 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block link %}
-    <link rel="stylesheet" href=" {% static 'app/css/styles.css' %}
+<link rel="stylesheet" href=" {% static 'app/css/styles.css' %}
     ">
 {% endblock link %}
 {% block main-container %}
-<h1 class="greet">PRODUCT</h1>
+<h1 class="arrival">PRODUCT</h1>
 <div class="ar_bg"></div>
 <div class="product-view">
     <div class="images">
@@ -34,7 +34,9 @@
         <div class="product-form">
             <div class="product-form-field">
                 <label for="size">Select Size</label>
-                <a class="link-product" href=""><nobr>Don’t know your ring size?</nobr></a>
+                <a class="link-product" href="">
+                    <nobr>Don’t know your ring size?</nobr>
+                </a>
                 <br>
                 <select id="sizes" class="product-form-select">
                     <option value="12">12</option>
@@ -78,7 +80,9 @@
                 <input type="hidden" name="prod_id" value={{pro.id}} id="prod_id">
                 <button type="submit" class="btn btn-primary">Add to Card</button>
             </form>
-            <button class="buy-now"><nobr>Buy Now</nobr></button>
+            <button class="buy-now">
+                <nobr>Buy Now</nobr>
+            </button>
         </div>
     </div>
 </div>
@@ -109,12 +113,13 @@
         </tr>
     </table>
 </div>
+
 <script src="https://kit.fontawesome.com/9dddb02c5f.js" crossorigin="anonymous"></script>
 <script>
     const staticImages = document.querySelectorAll(".static-img");
     const mainImage = document.getElementById('main-image');
     staticImages.forEach(element => {
-        element.addEventListener("click",()=>{
+        element.addEventListener("click", () => {
             mainImage.src = element.getAttribute("src");
         })
     });

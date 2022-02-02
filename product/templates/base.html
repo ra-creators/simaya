@@ -50,13 +50,44 @@
         </div>
     </header>
 
-    {% block content %}{% endblock content %}
+    <div id="popUp">
+        <div class="crossBox">
+            <div class="cross" onclick="closePop()">+</div>
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-6 p-0"><img class="w-100" style="border-radius: 5%;" src="{% static 'app/images/bg/stayTuned.png' %}" alt=""></div>
+            <div class="col-sm-6 mailBox p-0" style="background-image: url(/app/images/bg/stayTunedBg.png);">
+                <div>
+                    <div class="headtag">Stay Turned !</div>
+                    <div class="mailTag">Get on our mailing list for latestupdates, new product lanunches and more.</div>
+                    <div style="padding: 5%;">
+                        <form class="email_form" action="">
+                            <input class="email_input" type="email">
+                            <label class="email_label" for=""><i class="fa fa-location-arrow" aria-hidden="true"></i></label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="thankYou">
+        <div>
+            <div class="thanks">Thank You !</div>
+            <div class="placed mb-5">your order has been placed successfully</div>
+            <div class="thankBtns">
+                <button style="background: transparent;">TRACK YOUR ORDER</button>
+                <button style="background: #F78383; color: #fff;" onclick="closeThanks()">CLOSE</button>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock content %}
 
     <footer>
         <div class="row">
             <div class="col-sm-5 px-5">
-                <div class="radhya radhya_f">Radhya Jewels</div>
-                <div class="jewl jewl_f">Diamond Jewellery Collection</div>
+                <div class="radhya radhya_f" onclick="showPop()">Radhya Jewels</div>
+                <div class="jewl jewl_f" onclick="showThanks()">Diamond Jewellery Collection</div>
                 <div class="f_links mt-3">Scelerisque sit et bibendum molestie duis in velit dis. Ac viverra nunc nulla
                     sed dui. Et faucibus
                     lobortis ultrices fermentum luctus feugiat semper.</div>
@@ -97,6 +128,22 @@
         </div>
     </footer>
 </body>
+ <script>
+     const popUp = document.getElementById('popUp');
+     function showPop() {
+         popUp.style.display = "block";
+     }
+     function closePop() {
+         popUp.style.display = "none";
+     }
+     const thankYou = document.getElementById('thankYou');
+     function showThanks() {
+        thankYou.style.display = "flex";
+     }
+     function closeThanks() {
+        thankYou.style.display = "none";
+     }
+ </script>
 {% block js %}
 {% endblock js %}
 </html>
