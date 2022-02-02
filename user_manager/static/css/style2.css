@@ -43,7 +43,7 @@ h1{
 
 .sign-in-form{
     width: 100%;
-    
+    padding: 3rem;
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
     background: #fff;
     padding: 20px;
@@ -85,7 +85,7 @@ button{
     cursor: pointer;
     letter-spacing: .8px;
     word-spacing: .1px;
-    margin-top: 5%;
+    margin-top: 1%;
 }
 
 .continue{

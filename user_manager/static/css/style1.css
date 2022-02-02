@@ -3,7 +3,6 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif,Poppins;
-    
     box-sizing: border-box; 
     background-image:linear-gradient(to right,rgba(247, 131, 131, 0.76),rgba(247, 131, 131, 0.76)), url('../images/background1.png');
     background-blend-mode: screen;
@@ -12,6 +11,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 h1{
     font-family: 'El Messiri', sans-serif;
     line-height: .8;

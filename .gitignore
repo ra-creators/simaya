@@ -2,7 +2,7 @@ __pycache__
 venv
 staticfiles
 db.sqlite3
-media
+media/*
 **/*.css.map
 .vscode
 

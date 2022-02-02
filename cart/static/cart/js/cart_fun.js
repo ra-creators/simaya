@@ -1,31 +1,38 @@
 let getTotalPrice = () => {
     let total = 0;
+    let discount = 0;
     return fetch('/cart/total/')
     .then(response => response.json())
     .then(data => { 
         total += parseInt(data.total);
-        return total;
+        discount += parseInt(data.discount_price);
+        return {'total': total, 'discount': discount};
     });
 }
 
 let updatePrice = () => {
-    let total = getTotalPrice()
+    let obj = getTotalPrice()
     //.then(response => response.text())
     .then(body => {
         // console.log(body);
-        total = body;
-        let totalEle = document.getElementById('total-price');
-        totalEle.innerHTML = `Total ${total}`;
-        totalEle = document.getElementById('cart-total');
-        totalEle.innerHTML = `${total}`;
+        obj = body;
+        total = obj.total;
+        discount = obj.discount;
+        let totalEle = document.getElementById('cart-total');
+        totalEle.innerHTML = `${total}`+".00";
         totalEle = document.getElementById('total-after-discount');
-        totalEle.innerHTML = `${total}`;
-    });    
+        totalEle.innerHTML = `${discount}`+".00";
+        totalEle = document.getElementById('total-price');
+        // console.log(totalEle)
+        if( totalEle != null){
+            totalEle.innerHTML = `Total ${total}`+".00";
+        }
+    }); 
 }
 
 
 let removeItemId = (id) => {
-    // console.log("CLICKED");
+    console.log("CLICKED");
     fetch('/cart/remove/' + id + '/', {
         method: 'POST',
     })

@@ -235,6 +235,27 @@ Product
                         <span class="circle"></span>
                         1/2/3
                     </div>
+
+                <div class="bestseller">
+                    Bestseller
+                </div>
+                <div class="price">
+                    <div class="keep">Rs. {{ product.price }}</div>
+                    {% comment %} <div class="cut">Rs.40000</div> {% endcomment %}
+                </div>
+                {% comment %} <div class="flat">Flat 10% on MRP</div> {% endcomment %}
+                <div class="cart-buttons">
+                    {% comment %} <button class="add-to-cart">  {% endcomment %}
+                        {% comment %}   onClick='addToCart("{{ product.id }}", "{{ product.name }}",
+                     "{{ product.price }}",
+                     "{{ product.stocks }}",
+                     "{{ product.get_primary_image }}")'>
+                      {% endcomment %}
+                    {% comment %} <nobr>Add to Cart</nobr></button> {% endcomment %}
+                    <input type="submit" name='add_to_cart' class='add-to-cart' value="Add to cart">
+                    {% comment %} <button class="buy-now"><nobr>Buy Now</nobr></button> {% endcomment %}
+                    <input type="submit" name='buy_now' class="buy-now" value="Buy Now">
+            
                 </div>
             </div>
             <div class="text-start mb-5"
@@ -249,6 +270,7 @@ Product
 </div>
 {% endblock %}
 {% block js %}
+
 {% comment %}
 <script>
     window.addEventListener("DOMContentLoaded", (event) => {
@@ -369,3 +391,4 @@ integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRk
     }
 </script>
 {% endblock js %}
+

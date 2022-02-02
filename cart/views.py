@@ -5,24 +5,25 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from product.models import Product
 from .cart import Cart
+from coupons.models import Coupon
 from .helpers import *
 # from .forms import CartAddProductForm
 
 # Create your views here.
 def cart(request):
     cart = Cart(request)
-    #total
-    cart.print_cart()
-    return render(request, 'cart/cart.html', {'cart': cart})
+    discount = None
+    if request.session.get('coupon_id'):
+        discount = Coupon.objects.get(id=request.session['coupon_id']).discount
+    # print(request.session.get('coupon_id'))
+    # cart.print_cart()
+    return render(request, 'cart/cart.html', {'cart': cart, 'discount': discount})
 
 @require_POST
 def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     form_data = request.POST.copy()
-    if 'buy_now' in form_data:
-        # Redirect to Buy Now
-        pass
     size = form_data.get('sizes')
     metal = form_data.get('metal')
     diamond = form_data.get('diamond')
@@ -33,6 +34,10 @@ def cart_add(request, product_id):
                  size=size,
                  metal=metal, 
                  diamond=diamond)
+    if 'buy_now' in form_data:
+        # Redirect to Buy Now
+        return redirect('order_create')
+    
     # print(request.POST)
     # print(product)
     return redirect('cart')
@@ -48,7 +53,10 @@ def cart_remove(request, product_id):
 def get_total_price(request):
     cart = Cart(request)
     total = cart.get_total_price()
-    content = json.dumps({'total': str(total)})
+    discount_price = 0
+    if request.session.get('coupon_id'):
+        discount_price = cart.get_total_price_after_discount()
+    content = json.dumps({'total': str(total), 'discount_price': str(discount_price)})
     return HttpResponse(content, content_type='application/json')
 
 
@@ -71,7 +79,7 @@ def cart_increase(request, product_id):
 @require_POST
 def cart_decrease(request, product_id):
     cart = Cart(request)
-    print(product_id)
+    # print(product_id)
     product_id = str(product_id)
     is_ok = cart.decrease_count(product_id)
     # cart.print_cart()

@@ -2,7 +2,7 @@
 {% load static %}
 {% load socialaccount %}
 {% block link %}
-    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style2.css' %}">
 {% endblock link %}
 {% block main-container %}
     <div class="container">
@@ -56,17 +56,17 @@
             <hr>
             <p class="or"> or </p>
         </form>   
-        <form action="" method='post'>
+        <form action="{% provider_login_url 'google' %}" method='post'>
             {% csrf_token %}
-            <button type="submit" id="signup-google" class="signup-google" ><i class="fa fa-google"></i>
+            <button type="submit" id="signup-google" class="signup-google" ><i class="fab fa-google"></i>
                 Continue with Google</button>
         </form>
         <form action="" method='post'>
             {% csrf_token %}
-            <button type="submit" id="signup-facebook" class="signup-facebook"><i class="fa fa-facebook-f"></i> 
+            <button type="submit" id="signup-facebook" class="signup-facebook"><i class="fab fa-facebook-f"></i> 
                 Continue with Facebook</button>
         </form>
-        <button type="button" id="signup-apple" class="signup-apple"> <i class="fa fa-apple"></i> Continue with Apple</button>
+        <button type="button" id="signup-apple" class="signup-apple"> <i class="fa fa-apple"></i> Continue with Apple</button>  
         
         </div>
     </div>
