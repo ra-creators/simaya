@@ -1770,6 +1770,7 @@ div.filter-icons i {
 .other-images {
   display: flex;
   justify-content: space-around;
+  margin-top: 5%;
 }
 
 .static-img {

@@ -209,7 +209,7 @@
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 24.0782px;
+    font-size: 22.0782px;
     line-height: 36px;
     letter-spacing: 0.03em;
     color: rgba(0, 0, 0, 0.75);
@@ -244,9 +244,15 @@
 }
 @media screen and (max-width : 576px){
     #tabs3 , #tabs31{
-        font-size: 15px;
-        width: 90%;
-        display: grid;
+        font-size: 20px;
+        width: 100%;
+        overflow: auto;
+        display: -webkit-box;
+        padding: 0;
+    }
+    #tabs3 li , #tabs31 li {
+        width: 30%;
+        text-align: center;
     }
     .engg_t{
         font-size: 30px;
