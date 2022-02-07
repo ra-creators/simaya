@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+# import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,9 +24,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$8xx52pwc)=8+juj*z#0jrbucv-#q+u3iu(fk=z3j2dvk##o_)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if 'DEBUG' in os.environ:
+    DEBUG = True if os.environ['DEBUG'] == '1' else False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+if "DEPLOY" in os.environ:
+    DEPLOY = True if os.environ['DEPLOY'] == '1' else False
+else:
+    DEPLOY = True
+
+ALLOWED_HOSTS = ['184.168.125.149', 'localhost',
+                 'radhyajewels.com', 'www.radhyajewels.com', 'radhyajewels.com']
 AUTHENTICATION_BACKENDS = [
     
     'django.contrib.auth.backends.ModelBackend',
@@ -105,16 +114,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'django_db',
-    #     'USER': 'root',
-    #     'PASSWORD': 'Bhavesh@8817',
-    #     'HOST':'localhost',
-    #     'PORT':'3306',
-    # }
 }
 
+if DEPLOY:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'radhya12_simaya',
+            'USER': os.environ['DB_USER'],
+            'PASSWORD': os.environ['DB_PASSWORD'],
+            'HOST':'localhost',
+            'PORT':'3306',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -152,11 +164,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if not DEPLOY:
+    STATIC_URL = '/static/'
+else:
+    STATIC_URL = 'https://static.radhyajewels.com/static/'
+STATIC_ROOT = '/home/radhya123jewels/public_html/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+if not DEPLOY:
+    MEDIA_URL = '/media/'
+else:
+    MEDIA_URL = 'https://static.radhyajewels.com/media/'
+MEDIA_ROOT = '/home/radhya123jewels/public_html/media'
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL= "/"
@@ -175,4 +193,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_ID') 
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PW')
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

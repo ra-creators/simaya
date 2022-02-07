@@ -29,11 +29,7 @@ body {
 }
 .flower-bg-up {
   position: absolute;
-  top: 0;
   right: 0;
-}
-.flower-bg-up.blog-page {
-  top: 115px;
 }
 .sp-flower-bg {
   position: relative;

@@ -67,6 +67,10 @@ footer {
     margin: auto;
 }
 
+.w90{
+    width: 90%;
+    margin: auto;
+}
 .m1 {
     font-family: Analogue;
     font-style: normal;
